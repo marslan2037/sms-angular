@@ -35,9 +35,13 @@ input {
     outline: none;
     font-weight: 600;
 }
+input.ng-touched.ng-invalid {
+    border-color: $danger-color;
+}
 p.has-error {
     color: $danger-color;
-    margin: 10px 0 0;
+    margin: 5px 0 0;
+    font-size: 12px;
 }
 h1.title {
     font-size: 36px;
@@ -61,6 +65,11 @@ button {
         background-color: $btn-bg-color-hover;
         border-color: $btn-border-color-hover;
     }
+}
+button.disbaled {
+    background: $gray-color;
+    border: none;
+    cursor: not-allowed;
 }
 .another-action {
     margin: 35px 0 0;

@@ -4,18 +4,28 @@
         <p class="sub-title">Hello! Log in with your email.</p>
     </div>
     
-    <form>
+    <form [formGroup]="form" (ngSubmit)="submit()">
         <div class="single-form-field">
             <label>Email</label>
-            <input type="email" placeholder="Enter your email" />
+            <input type="email" placeholder="Enter your email" formControlName="email" />
+
+            <p 
+                class="has-error" 
+                *ngIf="!form.controls.email.valid && form.controls.email.valid"
+            >Email is required</p>
         </div>
         
         <div class="single-form-field">
             <label>Password</label>
-            <input type="password" placeholder="Enter your password" />
+            <input type="password" placeholder="Enter your password" formControlName="password" />
+
+            <p 
+                class="has-error" 
+                *ngIf="!form.controls.password.valid && form.controls.password.touched"
+            >Password is required</p>
         </div>
         
-        <button>Login</button>
+        <button [ngClass]="{'disbaled': (form.touched && !form.valid)}" [disabled]="!form.valid">Login</button>
     </form>
 
     <p class="align-center another-action">Don't have an account? <a routerLink="/add-user" class="text-link">Register</a></p>

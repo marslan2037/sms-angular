@@ -10,7 +10,7 @@ const routes: Routes = [
     { path: '', redirectTo: 'home', pathMatch: 'full' },
     { path: 'login', component: LoginComponent },
     { path: 'add-user', component: SignupComponent },
-    { path: 'home', loadChildren: () => import('app/components/auth-pages/home/home.module').then(m => m.HomeModule), canActivate: [AuthService] },
+    { path: 'home', loadChildren: () => import('./components/auth-pages/home/home.module').then(m => m.HomeModule), canActivate: [AuthService] },
     { path: '**', component: LoginComponent },
 ];
 
