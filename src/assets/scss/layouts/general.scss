@@ -3,4 +3,69 @@
     margin: 0;
     box-sizing: border-box;
     font-family: 'Open Sans', sans-serif;
+    color: $text-color;
+}
+.align-center {
+    text-align: center;
+}
+.form-section {
+    max-width: 520px;
+    margin: 0 auto;
+    display: grid;
+    align-content: center;
+    height: 100%;
+}
+
+.single-form-field {
+    margin: 0 0 20px;
+}
+label {
+    display: block;
+    font-size: 14px;
+    margin: 0 0 8px;
+    font-weight: 600;
+}
+input {
+    background-color: $input-bg-color;
+    border-radius: 4px;
+    height: 48px;
+    padding: 0 14px;
+    border: 1px solid $border-color;
+    width: 100%;
+    outline: none;
+    font-weight: 600;
+}
+p.has-error {
+    color: $danger-color;
+    margin: 10px 0 0;
+}
+h1.title {
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 48px;
+    margin: 0 0 12px;
+}
+p.sub-title {
+    margin: 0 0 30px;
+}
+button {
+    background-color: $btn-bg-color;
+    border: 1px solid $btn-border-color;
+    cursor: pointer;
+    color: $light-color;
+    font-size: 18px;
+    height: 48px;
+    width: 100%;
+    border-radius: 4px;
+    &:hover {
+        background-color: $btn-bg-color-hover;
+        border-color: $btn-border-color-hover;
+    }
+}
+.another-action {
+    margin: 35px 0 0;
+}
+.text-link {
+    color: $anchor;
+    text-decoration: underline;
 }

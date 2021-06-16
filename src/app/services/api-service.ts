@@ -9,4 +9,10 @@ export class ApiService {
     constructor(
         private http: HttpClient
     ) {}
+
+    isAuthenticated() {
+        let token = sessionStorage.getItem('token') !== null;
+
+        return (token) ? true : false;
+    }
 }
