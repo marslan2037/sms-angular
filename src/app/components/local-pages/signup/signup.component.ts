@@ -18,10 +18,10 @@ export class SignupComponent implements OnInit {
 
     createForm() {
         this.form = this.fb.group({
-            'first_name': ['', [Validators.required]],
-            'last_name': ['', [Validators.required]],
+            'first_name': ['', ],
+            'last_name': ['', ],
             'email': ['', [Validators.required]],
-			'password': ['', [Validators.required, Validators.minLength(6)]]
+			'password': ['', [Validators.required]]
         })
     }
 
