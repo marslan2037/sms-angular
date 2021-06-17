@@ -12,6 +12,7 @@ export class AuthService {
 
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | boolean {
         
+        console.log(this.api_service.isAuthenticated());
         if(this.api_service.isAuthenticated()) {
         	return true;
         }
