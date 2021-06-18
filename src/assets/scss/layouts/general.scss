@@ -5,9 +5,32 @@
     font-family: 'Open Sans', sans-serif;
     color: $text-color;
 }
+body {
+    background-color: $body-bg-color;
+}
+
+p, h1, h2, h3 {
+    margin: 0;
+}
+
+ul {
+    padding: 0;
+    li {
+        list-style: none;
+        a {
+            display: block;
+            text-decoration: none;
+            &:hover {
+                text-decoration: none;
+            }
+        }
+    }
+}
+
 .align-center {
     text-align: center;
 }
+
 .form-section {
     max-width: 520px;
     margin: 0 auto;

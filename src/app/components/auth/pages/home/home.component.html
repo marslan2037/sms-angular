@@ -1,5 +1,10 @@
-<app-header></app-header>
+<div class="static-page-content">
+    <app-header></app-header>
+    <app-sidebar></app-sidebar>
 
-<app-sidebar></app-sidebar>
+    <div class="dynamic-page-content">
+        <router-outlet></router-outlet>
+    </div>
 
-<app-footer></app-footer>
+    <app-footer></app-footer>
+</div>

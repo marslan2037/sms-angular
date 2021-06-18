@@ -1,1 +1,49 @@
 /* You can add global styles to this file, and also import other style files */
+
+/* SIDEBAR ACCORDION CUSTOM SCSS START */
+.sidebar {
+    .card {
+        border: none;
+        border-radius: none;
+        .card-header {
+            padding: 0;
+            border: none;
+            background: none;
+            border-radius: none;
+        }
+        p.heading {
+            padding: 16px;
+            min-height: 26px;
+            display: block;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+            color: #222b45;
+            text-decoration: none !important;
+            font-weight: 600;
+            font-size: 14px;
+        }
+        p.heading.active {
+            color: #36f;
+        }
+    }
+    .panel-body {
+        padding: 0;
+        ul {
+            margin: 0;
+            padding: 0 16px 0 25px;
+            border-bottom: 1px solid #ddd;
+            li {
+                border-bottom: 1px solid #ddd;
+                &:last-child {
+                    border: none;
+                }
+                a {
+                    font-size: 14px;
+                    color: #222b45;
+                    line-height: 40px;
+                }
+            }
+        }
+    }
+}
+/* SIDEBAR ACCORDION CUSTOM SCSS START END */
