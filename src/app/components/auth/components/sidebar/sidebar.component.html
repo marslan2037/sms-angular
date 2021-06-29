@@ -1,47 +1,37 @@
 <accordion class="sidebar" [isAnimated]="true">
-      <accordion-group [panelClass]="customClass">
-        <p class="btn btn-link heading" accordion-heading type="button">
-            Teachers
-        </p>
+        <accordion-group [panelClass]="customClass">
+            <p class="btn btn-link heading" accordion-heading type="button">
+                Teachers <i class="fa fa-angle-right"></i>
+            </p>
 
-        <ul>
-            <li><a href="#">Add New</a></li>
-            <li><a href="#">View All</a></li>
-        </ul>
-      </accordion-group>
+            <ul>
+                <li><a routerLink="teachers/add">Add New</a></li>
+                <li><a routerLink="teachers">View All</a></li>
+                <li><a routerLink="teachers/fine">Fine</a></li>
+            </ul>
+        </accordion-group>
 
-      <accordion-group>
-        <p class="btn btn-link heading" accordion-heading type="button">
-            Students
-        </p>
+        <accordion-group>
+            <p class="btn btn-link heading" accordion-heading type="button">
+                Students <i class="fa fa-angle-right"></i>
+            </p>
 
-        <ul>
-            <li><a href="#">Add New</a></li>
-            <li><a href="#">View All</a></li>
-        </ul>
-      </accordion-group>
+            <ul>
+                <li><a routerLink="students/add">Add New</a></li>
+                <li><a routerLink="students">View All</a></li>
+                <li><a routerLink="students/fine">Fine</a></li>
+            </ul>
+        </accordion-group>
 
-      <accordion-group>
-        <p class="btn btn-link heading" accordion-heading type="button">
-            Fine
-        </p>
+        <accordion-group>
+            <p class="btn btn-link heading" accordion-heading type="button">
+                Fee <i class="fa fa-angle-right"></i>
+            </p>
 
-        <ul>
-            <li><a href="#">Add New</a></li>
-            <li><a href="#">View Paid</a></li>
-            <li><a href="#">View UnPaid</a></li>
-        </ul>
-      </accordion-group>
-
-      <accordion-group>
-        <p class="btn btn-link heading" accordion-heading type="button">
-            Fee
-        </p>
-
-        <ul>
-            <li><a href="#">Add New</a></li>
-            <li><a href="#">View Paid</a></li>
-            <li><a href="#">View UnPaid</a></li>
-        </ul>
-      </accordion-group>
+            <ul>
+                <li><a href="#">Add New</a></li>
+                <li><a href="#">View Paid</a></li>
+                <li><a href="#">View UnPaid</a></li>
+            </ul>
+        </accordion-group>
 </accordion>

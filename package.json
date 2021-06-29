@@ -23,6 +23,8 @@
         "@angular/platform-browser-dynamic": "~11.2.8",
         "@angular/router": "~11.2.8",
         "@schematics/angular": "^11.2.14",
+        "ag-grid-angular": "^25.3.0",
+        "ag-grid-community": "^25.3.0",
         "ngx-bootstrap": "^6.2.0",
         "ngx-spinner": "^11.0.2",
         "ngx-toastr": "^13.2.0",

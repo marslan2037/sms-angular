@@ -1,0 +1,74 @@
+<div class="form-section">
+    <div class="form-heading align-center">
+        <h1 class="title">Add Teacher</h1>
+        <p class="sub-title">Fill the form below to add new Teacher.</p>
+    </div>
+    
+    <form [formGroup]="form" (ngSubmit)="submit()">
+        <div class="have-grid two-column">
+            <div class="single-form-field">
+                <label>First Name</label>
+                <input type="text" placeholder="Enter your first name" formControlName="first_name" />
+    
+                <p 
+                    class="has-error" 
+                    *ngIf="!form.controls.first_name.valid && form.controls.first_name.valid"
+                >First Name is required</p>
+            </div>
+    
+            <div class="single-form-field">
+                <label>Last Name</label>
+                <input type="text" placeholder="Enter your last name" formControlName="last_name" />
+    
+                <p 
+                    class="has-error" 
+                    *ngIf="!form.controls.last_name.valid && form.controls.last_name.valid"
+                >Last Name is required</p>
+            </div>
+        </div>
+
+        <div class="have-grid two-column">
+            <div class="single-form-field">
+                <label>Email</label>
+                <input type="email" placeholder="Enter your email" formControlName="email" />
+            </div>
+            
+            <div class="single-form-field">
+                <label>Phone Number</label>
+                <input type="text" placeholder="Enter your phone number" formControlName="phone_number" />
+    
+                <p 
+                    class="has-error" 
+                    *ngIf="!form.controls.phone_number.valid && form.controls.phone_number.valid"
+                >Phone Number is required</p>
+            </div>
+        </div>
+
+        <div class="single-form-field">
+            <label>Address</label>
+            <input type="text" placeholder="Enter your address" formControlName="address" />
+        </div>
+
+        <div class="single-form-field">
+            <label>Pictrue</label>
+            <input type="file" formControlName="picture" />
+        </div>
+
+        <div class="single-form-field">
+            <label>Subjects</label>
+            <input type="Subjects" placeholder="Enter your Subjects" formControlName="subjects" />
+
+            <p 
+                class="has-error" 
+                *ngIf="!form.controls.subjects.valid && form.controls.subjects.valid"
+            >Subjects are required</p>
+        </div>
+
+        <div class="single-form-field">
+            <label>About</label>
+            <textarea placeholder="Enter something about yourself" formControlName="about"></textarea>
+        </div>
+        
+        <button [ngClass]="{'disbaled': (form.touched && !form.valid)}" [disabled]="!form.valid">Add</button>
+    </form>
+</div>

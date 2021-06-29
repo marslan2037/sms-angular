@@ -27,6 +27,17 @@ ul {
     }
 }
 
+.have-grid {
+    display: grid;
+    grid-gap: 18px;
+}
+.two-column {
+    grid-template-columns: 1fr 1fr;
+}
+.three-column {
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
 .align-center {
     text-align: center;
 }
@@ -48,15 +59,35 @@ label {
     margin: 0 0 8px;
     font-weight: 600;
 }
-input {
-    background-color: $input-bg-color;
-    border-radius: 4px;
-    height: 48px;
-    padding: 0 14px;
-    border: 1px solid $border-color;
-    width: 100%;
-    outline: none;
-    font-weight: 600;
+.form-section {
+    input, select, textarea {
+        background-color: $input-bg-color;
+        border-radius: 4px;
+        height: 48px;
+        padding: 0 14px;
+        border: 1px solid $border-color;
+        width: 100%;
+        outline: none;
+        font-weight: 600;
+        &::placeholder {
+            font-size: 14px;
+        }
+    }
+    input[type='file'] {
+        background: none;
+        padding: 0;
+        height: initial;
+        border: 0;
+    }
+    textarea {
+        height: 120px;
+        padding: 14px;
+    }
+}
+.dynamic-page-content {
+    .form-section {
+        height: initial;
+    }
 }
 input.ng-touched.ng-invalid {
     border-color: $danger-color;
