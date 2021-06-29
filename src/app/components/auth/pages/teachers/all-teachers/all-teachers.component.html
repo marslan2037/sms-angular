@@ -1,6 +1,11 @@
 <ag-grid-angular
-    style="width: 500px; height: 500px;"
+    style="width: 100%; height: 100%;"
     class="ag-theme-alpine"
+    [headerHeight]="headerHeight"
+    [floatingFiltersHeight]="headerHeight"
+    [colResizeDefault]="colResizeDefault"
+    [defaultColDef]="defaultColDef"
+    [columnTypes]="columnTypes"
     [rowData]="rowData"
     [columnDefs]="columnDefs"
 >
