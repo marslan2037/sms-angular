@@ -1,3 +1,4 @@
+<ngx-spinner [name]="spinner_name" [fullScreen]="true" type="ball-clip-rotate-multiple" size="medium"></ngx-spinner>
 <div class="form-section">
     <div class="form-heading align-center">
         <h1 class="title">Add Student</h1>
@@ -29,8 +30,8 @@
 
         <div class="have-grid two-column">
             <div class="single-form-field">
-                <label>Email</label>
-                <input type="email" placeholder="Enter your email" formControlName="email" />
+                <label>Roll No</label>
+                <input type="email" placeholder="Enter your email" formControlName="roll_number" />
             </div>
             
             <div class="single-form-field">
@@ -42,31 +43,6 @@
                     *ngIf="!form.controls.phone_number.valid && form.controls.phone_number.valid"
                 >Phone Number is required</p>
             </div>
-        </div>
-
-        <div class="single-form-field">
-            <label>Address</label>
-            <input type="text" placeholder="Enter your address" formControlName="address" />
-        </div>
-
-        <div class="single-form-field">
-            <label>Pictrue</label>
-            <input type="file" formControlName="picture" />
-        </div>
-
-        <div class="single-form-field">
-            <label>Subjects</label>
-            <input type="Subjects" placeholder="Enter your Subjects" formControlName="subjects" />
-
-            <p 
-                class="has-error" 
-                *ngIf="!form.controls.subjects.valid && form.controls.subjects.valid"
-            >Subjects are required</p>
-        </div>
-
-        <div class="single-form-field">
-            <label>About</label>
-            <textarea placeholder="Enter something about yourself" formControlName="about"></textarea>
         </div>
         
         <button [ngClass]="{'disbaled': (form.touched && !form.valid)}" [disabled]="!form.valid">Add</button>

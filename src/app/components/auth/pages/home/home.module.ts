@@ -11,9 +11,13 @@ import { AllTeachersComponent } from '../teachers/all-teachers/all-teachers.comp
 import { NewTeacherComponent } from '../teachers/new-teacher/new-teacher.component';
 import { AllStudentsComponent } from '../students/all-students/all-students.component';
 import { NewStudentComponent } from '../students/new-student/new-student.component';
+import { FilterIconRenderer } from 'src/app/components/cell-rendering-components/filter-icon-rendering/filter-icon-rendering.component';
 
 import { AccordionModule } from 'ngx-bootstrap/accordion';
 import { AgGridModule } from 'ag-grid-angular';
+import { MomentModule } from 'ngx-moment';
+import { NgxSpinnerModule } from "ngx-spinner";
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
     declarations: [
@@ -31,8 +35,13 @@ import { AgGridModule } from 'ag-grid-angular';
         FormsModule,
         ReactiveFormsModule,
         CommonModule,
+        MomentModule,
+        NgxSpinnerModule,
+        ToastrModule.forRoot(),
         AccordionModule.forRoot(),
-        AgGridModule.withComponents([])
+        AgGridModule.withComponents([
+            FilterIconRenderer
+        ]),
     ]
 })
 export class HomeModule { }
