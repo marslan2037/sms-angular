@@ -1,7 +1,8 @@
+<ngx-spinner [name]="spinner_name" [fullScreen]="true" type="ball-clip-rotate-multiple" size="medium"></ngx-spinner>
 <div class="form-section">
     <div class="form-heading align-center">
-        <h1 class="title">Add Teacher</h1>
-        <p class="sub-title">Fill the form below to add new Teacher.</p>
+        <h1 class="title">Update Student</h1>
+        <p class="sub-title">Add new changes to the form below.</p>
     </div>
     
     <form [formGroup]="form" (ngSubmit)="submit()">
@@ -124,6 +125,6 @@
             </div>
         </div>
         
-        <button [ngClass]="{'disbaled': (form.touched && !form.valid)}" [disabled]="!form.valid">Add</button>
+        <button [ngClass]="{'disbaled': (form.touched && !form.valid)}" [disabled]="!form.valid">Update</button>
     </form>
 </div>

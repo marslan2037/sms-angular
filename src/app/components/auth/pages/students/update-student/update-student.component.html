@@ -1,12 +1,13 @@
+<ngx-spinner [name]="spinner_name" [fullScreen]="true" type="ball-clip-rotate-multiple" size="medium"></ngx-spinner>
 <div class="form-section">
     <div class="form-heading align-center">
-        <h1 class="title">Add Teacher</h1>
-        <p class="sub-title">Fill the form below to add new Teacher.</p>
+        <h1 class="title">Update Student</h1>
+        <p class="sub-title">Add new changes to the form below.</p>
     </div>
     
     <form [formGroup]="form" (ngSubmit)="submit()">
         <div>
-            <label class="section-heading">Personal Information</label>
+            <label class="section-heading">Student Information</label>
 
             <div class="have-grid two-column">
                 <div class="single-form-field">
@@ -32,46 +33,25 @@
 
             <div class="have-grid two-column">
                 <div class="single-form-field">
-                    <label>Teacher Id</label>
-                    <input type="text" placeholder="Teacher Id" formControlName="teacher_id" />
+                    <label>Roll No</label>
+                    <input type="email" placeholder="Roll No" formControlName="roll_number" />
                 </div>
     
                 <div class="single-form-field">
-                    <label>Email</label>
-                    <input type="email" placeholder="Email" formControlName="email" />
+                    <label>Class</label>
+                    <input type="text" placeholder="Enter assigned class" formControlName="class" />
                 </div>
             </div>
 
             <div class="have-grid two-column">
                 <div class="single-form-field">
-                    <label>CNIC</label>
-                    <input type="text" placeholder="CNIC" formControlName="cnic" />
-                </div>
-
-                <div class="single-form-field">
-                    <label>Phone No.</label>
-                    <input type="text" placeholder="Phone number" formControlName="phone_number" />
-        
-                    <p 
-                        class="has-error" 
-                        *ngIf="!form.controls.phone_number.valid && form.controls.phone_number.valid"
-                    >Phone Number is required</p>
-                </div>
-            </div>
-        </div>
-
-        <div>
-            <label class="section-heading">Educational Information</label>
-            
-            <div class="have-grid two-column">
-                <div class="single-form-field">
-                    <label>Qualification</label>
-                    <input type="text" placeholder="Qualification" formControlName="qualification" />
+                    <label>B Form</label>
+                    <input type="text" placeholder="B Form" formControlName="b_form" />
                 </div>
     
                 <div class="single-form-field">
-                    <label>Experience</label>
-                    <input type="text" placeholder="Experience" formControlName="experience" />
+                    <label>Previous School</label>
+                    <input type="text" placeholder="Previous School" formControlName="previous_school" />
                 </div>
             </div>
         </div>
@@ -124,6 +104,39 @@
             </div>
         </div>
         
-        <button [ngClass]="{'disbaled': (form.touched && !form.valid)}" [disabled]="!form.valid">Add</button>
+        <div>
+            <label class="section-heading">Father / Guardian Information</label>
+
+            <div class="have-grid two-column">
+                <div class="single-form-field">
+                    <label>Father Name</label>
+                    <input type="text" placeholder="Father Name" formControlName="father_name" />
+                </div>
+                
+                <div class="single-form-field">
+                    <label>Father CNIC</label>
+                    <input type="text" placeholder="Father CNIC" formControlName="father_cnic" />
+        
+                    <p 
+                        class="has-error" 
+                        *ngIf="!form.controls.phone_number.valid && form.controls.phone_number.valid"
+                    >Phone Number is required</p>
+                </div>
+            </div>
+    
+            <div class="have-grid">
+                <div class="single-form-field">
+                    <label>Phone No.</label>
+                    <input type="text" placeholder="Phone number" formControlName="phone_number" />
+        
+                    <p 
+                        class="has-error" 
+                        *ngIf="!form.controls.phone_number.valid && form.controls.phone_number.valid"
+                    >Phone Number is required</p>
+                </div>
+            </div>
+        </div>
+
+        <button [ngClass]="{'disbaled': (form.touched && !form.valid)}" [disabled]="!form.valid">Update</button>
     </form>
 </div>

@@ -7,10 +7,13 @@ import { HomeComponent } from './home.component';
 import { HeaderComponent } from '../../components/header/header.component';
 import { FooterComponent } from '../../components/footer/footer.component';
 import { SidebarComponent } from '../../components/sidebar/sidebar.component';
+
 import { AllTeachersComponent } from '../teachers/all-teachers/all-teachers.component';
-import { NewTeacherComponent } from '../teachers/new-teacher/new-teacher.component';
 import { AllStudentsComponent } from '../students/all-students/all-students.component';
+import { NewTeacherComponent } from '../teachers/new-teacher/new-teacher.component';
 import { NewStudentComponent } from '../students/new-student/new-student.component';
+import { UpdateStudentComponent } from '../students/update-student/update-student.component';
+import { UpdateTeacherComponent } from '../teachers/update-teacher/update-teacher.component';
 import { FilterIconRenderer } from 'src/app/components/cell-rendering-components/filter-icon-rendering/filter-icon-rendering.component';
 
 import { AccordionModule } from 'ngx-bootstrap/accordion';
@@ -28,7 +31,9 @@ import { ToastrModule } from 'ngx-toastr';
         AllTeachersComponent,
         NewTeacherComponent,
         AllStudentsComponent,
-        NewStudentComponent
+        NewStudentComponent,
+        UpdateStudentComponent,
+        UpdateTeacherComponent
     ],
     imports: [
         HomeRouting,

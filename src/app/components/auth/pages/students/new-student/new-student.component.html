@@ -6,45 +6,137 @@
     </div>
     
     <form [formGroup]="form" (ngSubmit)="submit()">
-        <div class="have-grid two-column">
-            <div class="single-form-field">
-                <label>First Name</label>
-                <input type="text" placeholder="Enter your first name" formControlName="first_name" />
-    
-                <p 
-                    class="has-error" 
-                    *ngIf="!form.controls.first_name.valid && form.controls.first_name.valid"
-                >First Name is required</p>
+        <div>
+            <label class="section-heading">Personal Information</label>
+
+            <div class="have-grid two-column">
+                <div class="single-form-field">
+                    <label>First Name</label>
+                    <input type="text" placeholder="First name" formControlName="first_name" />
+        
+                    <p 
+                        class="has-error" 
+                        *ngIf="!form.controls.first_name.valid && form.controls.first_name.valid"
+                    >First Name is required</p>
+                </div>
+        
+                <div class="single-form-field">
+                    <label>Last Name</label>
+                    <input type="text" placeholder="Last name" formControlName="last_name" />
+        
+                    <p 
+                        class="has-error" 
+                        *ngIf="!form.controls.last_name.valid && form.controls.last_name.valid"
+                    >Last Name is required</p>
+                </div>
             </div>
+
+            <div class="have-grid two-column">
+                <div class="single-form-field">
+                    <label>Roll No</label>
+                    <input type="email" placeholder="Roll No" formControlName="roll_number" />
+                </div>
     
-            <div class="single-form-field">
-                <label>Last Name</label>
-                <input type="text" placeholder="Enter your last name" formControlName="last_name" />
+                <div class="single-form-field">
+                    <label>Class</label>
+                    <input type="text" placeholder="Enter assigned class" formControlName="class" />
+                </div>
+            </div>
+
+            <div class="have-grid two-column">
+                <div class="single-form-field">
+                    <label>B Form</label>
+                    <input type="text" placeholder="B Form" formControlName="b_form" />
+                </div>
     
-                <p 
-                    class="has-error" 
-                    *ngIf="!form.controls.last_name.valid && form.controls.last_name.valid"
-                >Last Name is required</p>
+                <div class="single-form-field">
+                    <label>Previous School</label>
+                    <input type="text" placeholder="Previous School" formControlName="previous_school" />
+                </div>
             </div>
         </div>
 
-        <div class="have-grid two-column">
-            <div class="single-form-field">
-                <label>Roll No</label>
-                <input type="email" placeholder="Enter your email" formControlName="roll_number" />
+        <div>
+            <label class="section-heading">Address</label>
+
+            <div class="have-grid two-column">
+                <div class="single-form-field">
+                    <label>Counry</label>
+                    <select formControlName="country">
+                        <option>Select Value</option>
+                        <option value="pakistan">Pakistan</option>
+                    </select>
+                </div>
+                
+                <div class="single-form-field">
+                    <label>City / Village</label>
+                    <input type="text" placeholder="City / Village" formControlName="city" />
+        
+                    <p 
+                        class="has-error" 
+                        *ngIf="!form.controls.phone_number.valid && form.controls.phone_number.valid"
+                    >Phone Number is required</p>
+                </div>
             </div>
-            
-            <div class="single-form-field">
-                <label>Phone Number</label>
-                <input type="text" placeholder="Enter your phone number" formControlName="phone_number" />
+
+            <div class="have-grid">
+                <div class="single-form-field">
+                    <label>Mohallah</label>
+                    <input type="text" placeholder="Mohallah Name" formControlName="mohallah" />
+                </div>
+            </div>
     
-                <p 
-                    class="has-error" 
-                    *ngIf="!form.controls.phone_number.valid && form.controls.phone_number.valid"
-                >Phone Number is required</p>
+            <div class="have-grid two-column">
+                <div class="single-form-field">
+                    <label>Street</label>
+                    <input type="text" placeholder="Street" formControlName="street" />
+                </div>
+                
+                <div class="single-form-field">
+                    <label>House No.</label>
+                    <input type="text" placeholder="House No" formControlName="house_number" />
+        
+                    <p 
+                        class="has-error" 
+                        *ngIf="!form.controls.phone_number.valid && form.controls.phone_number.valid"
+                    >Phone Number is required</p>
+                </div>
             </div>
         </div>
         
+        <div>
+            <label class="section-heading">Father / Guardian Information</label>
+
+            <div class="have-grid two-column">
+                <div class="single-form-field">
+                    <label>Father Name</label>
+                    <input type="text" placeholder="Father Name" formControlName="father_name" />
+                </div>
+                
+                <div class="single-form-field">
+                    <label>Father CNIC</label>
+                    <input type="text" placeholder="Father CNIC" formControlName="father_cnic" />
+        
+                    <p 
+                        class="has-error" 
+                        *ngIf="!form.controls.phone_number.valid && form.controls.phone_number.valid"
+                    >Phone Number is required</p>
+                </div>
+            </div>
+    
+            <div class="have-grid">
+                <div class="single-form-field">
+                    <label>Phone No.</label>
+                    <input type="text" placeholder="Phone number" formControlName="phone_number" />
+        
+                    <p 
+                        class="has-error" 
+                        *ngIf="!form.controls.phone_number.valid && form.controls.phone_number.valid"
+                    >Phone Number is required</p>
+                </div>
+            </div>
+        </div>
+
         <button [ngClass]="{'disbaled': (form.touched && !form.valid)}" [disabled]="!form.valid">Add</button>
     </form>
 </div>

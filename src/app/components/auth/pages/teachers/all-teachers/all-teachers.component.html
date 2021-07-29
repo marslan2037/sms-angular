@@ -1,12 +1,16 @@
+<h4 class="section-heading">Teacher Section</h4>
+
+<ngx-spinner [name]="spinner_name" [fullScreen]="true" type="ball-clip-rotate-multiple" size="medium"></ngx-spinner>
 <ag-grid-angular
-    style="width: 100%; height: 100%;"
     class="ag-theme-alpine"
-    [headerHeight]="headerHeight"
-    [floatingFiltersHeight]="headerHeight"
-    [colResizeDefault]="colResizeDefault"
-    [defaultColDef]="defaultColDef"
-    [columnTypes]="columnTypes"
-    [rowData]="rowData"
     [columnDefs]="columnDefs"
+    [defaultColDef]="defaultColDef"
+    [floatingFiltersHeight]="headerHeight"
+    [frameworkComponents]="gridFrameworkComponents"
+    [gridOptions]="gridOptions"
+    [headerHeight]="headerHeight"
+    [rowData]="rowData"
+    (gridReady)="onGridReady($event)"
+    (gridSizeChanged)="gridSizeChanged($event)"
 >
 </ag-grid-angular>

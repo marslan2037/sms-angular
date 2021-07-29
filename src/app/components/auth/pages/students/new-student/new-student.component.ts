@@ -32,6 +32,16 @@ export class NewStudentComponent {
             'roll_number': ['', ],
             'first_name': ['', ],
 			'last_name': ['', ],
+            'b_form': ['', ],
+            'class': ['', ],
+            'previous_school': ['None', ],
+            'country': ['pakistan', ],
+            'city': ['sharaqpur sharif', ],
+            'mohallah': ['', ],
+            'street': ['', ],
+            'house_number': ['', ],
+            'father_name': ['', ],
+            'father_cnic': ['', ],
 			'phone_number': ['', ],
         })
     }
