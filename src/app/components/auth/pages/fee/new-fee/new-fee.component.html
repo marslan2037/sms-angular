@@ -1,0 +1,98 @@
+<ngx-spinner [name]="spinner_name" [fullScreen]="true" type="ball-clip-rotate-multiple" size="medium"></ngx-spinner>
+<div class="form-section">
+    <div class="form-heading align-center">
+        <h1 class="title">Pay Fee</h1>
+        <p class="sub-title">Fill the form below to pay fee.</p>
+    </div>
+    
+    <form [formGroup]="form" (ngSubmit)="fetchStudent()">
+        <div>
+            <label class="section-heading">Student Information</label>
+
+            <div class="have-grid two-column">
+                <div class="single-form-field">
+                    <label>Roll No</label>
+                    <input 
+                        type="email" 
+                        placeholder="Roll No" 
+                        formControlName="roll_number"
+                    />
+                </div>
+    
+                <div class="single-form-field">
+                    <label>Class</label>
+                    <input 
+                        type="text" 
+                        placeholder="Enter assigned class" 
+                        formControlName="class"  
+                    />
+                </div>
+            </div>
+
+            <ng-container *ngIf="student_info">
+                <div class="have-grid two-column">
+                    <div class="single-form-field">
+                        <label>Name</label>
+                        <input type="text" placeholder="First name" formControlName="name" />
+            
+                        <!-- <p 
+                            class="has-error" 
+                            *ngIf="!form.controls.first_name.valid && form.controls.first_name.valid"
+                        >First Name is required</p> -->
+                    </div>
+
+                    <div class="single-form-field">
+                        <label>Father Name</label>
+                        <input type="text" placeholder="Last name" formControlName="father_name" />
+            
+                        <!-- <p 
+                            class="has-error" 
+                            *ngIf="!form.controls.last_name.valid && form.controls.last_name.valid"
+                        >Last Name is required</p> -->
+                    </div>
+                </div>
+            </ng-container>
+        </div>
+
+        <div *ngIf="student_info">
+            <label class="section-heading">Fee Information</label>
+
+            <div class="have-grid two-column">
+                <div class="single-form-field">
+                    <label>Month/Year</label>
+                    <!-- <input type="text" placeholder="Month" formControlName="month" /> -->
+                    <input 
+                        placeholder="Month/Year"
+                        formControlName="month"
+                        autocomplete="off" 
+                        name="date" 
+                        bsDatepicker 
+                        [bsConfig]="{dateInputFormat: 'MM/YYYY'}" 
+                        (onShown)="onOpenCalendar($event)" 
+                    />
+                </div>
+            </div>
+            
+            <div class="have-grid">
+                <div class="single-form-field">
+                    <label>Amount</label>
+                    <input 
+                        type="text" 
+                        placeholder="Amount" 
+                        formControlName="amount" 
+                    />
+        
+                    <!-- <p 
+                        class="has-error" 
+                        *ngIf="!form.controls.phone_number.valid && form.controls.phone_number.valid"
+                    >Phone Number is required</p> -->
+                </div>
+            </div>
+        </div>
+        
+        <button
+            [ngClass]="{'disbaled': (form.touched && !form.valid)}" 
+            [disabled]="!form.valid"
+        >{{(student_info) ? 'Pay Now': 'Fetch Student'}}</button>
+    </form>
+</div>

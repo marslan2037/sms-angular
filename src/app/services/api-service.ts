@@ -127,4 +127,76 @@ export class ApiService {
     /************************************/
     /****  TEACHER MODULE API's END  ****/
     /************************************/
+
+
+    /************************************/
+    /****   Fee MODULE API's START   ****/
+    /************************************/
+    fetchStudentForFee(data:any) {
+        let url = this.api_url + '/fee/fetch-student';
+
+        return this.http.post(url, data).pipe(
+            catchError(error => {
+                return observableThrowError(error)
+            }));
+    }
+
+    addNewFee(data:any) {
+        let url = this.api_url + '/fee/new';
+
+        return this.http.post(url, data).pipe(
+            catchError(error => {
+                return observableThrowError(error)
+            }));
+    }
+
+    getAllPaidFee() {
+        let url = this.api_url + '/fee/paid';
+
+        return this.http.get(url).pipe(
+            catchError(error => {
+                return observableThrowError(error)
+            }));
+    }
+
+    getSinglePaidFee(id:any) {
+        let url = this.api_url + '/fee/paid/'+id;
+
+        return this.http.get(url).pipe(
+            catchError(error => {
+                return observableThrowError(error)
+            }));
+    }
+
+    updateSinglePaidFee(id:any, data:any) {
+        let url = this.api_url + '/fee/paid/'+id;
+        const options = {responseType: 'text' as 'json'};
+
+        return this.http.patch(url, data, options).pipe(
+            catchError(error => {
+                return observableThrowError(error)
+            }));
+    }
+
+    getAllUnPaidFee() {
+        let url = this.api_url + '/fee/unpaid';
+
+        return this.http.get(url).pipe(
+            catchError(error => {
+                return observableThrowError(error)
+            }));
+    }
+    
+    deleteFee(id:any) {
+        const options = {responseType: 'text' as 'json'};
+        let url = this.api_url + '/fee/paid/'+id;
+
+        return this.http.delete(url, options).pipe(
+            catchError(error => {
+                return observableThrowError(error)
+            }));
+    }
+    /************************************/
+    /****    Fee MODULE API's END    ****/
+    /************************************/
 }

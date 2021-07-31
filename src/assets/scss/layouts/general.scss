@@ -9,6 +9,10 @@ body {
     background-color: $body-bg-color;
 }
 
+.pos-relative {
+    position: relative;
+}
+
 p, h1, h2, h3 {
     margin: 0;
 }
@@ -68,6 +72,19 @@ label.section-heading {
     font-size: 18px;
     margin: 0 0 12px;
 }
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none; 
+    appearance: none;
+}
+.custom-select-arrow {
+    i {
+        position: absolute;
+        right: 14px;
+        top: 50%;
+        transform: translate(0, -50%);
+    }
+}
 .form-section {
     input, select, textarea {
         background-color: $input-bg-color;
@@ -98,7 +115,9 @@ label.section-heading {
         height: initial;
     }
 }
-input.ng-touched.ng-invalid {
+input.ng-touched.ng-invalid, 
+select.ng-touched.ng-invalid,
+textarea.ng-touched.ng-invalid {
     border-color: $danger-color;
 }
 p.has-error {
@@ -131,7 +150,7 @@ button {
     }
 }
 button.disbaled {
-    background: $gray-color;
+    opacity: 0.7;
     border: none;
     cursor: not-allowed;
 }

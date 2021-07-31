@@ -29,19 +29,19 @@ export class NewTeacherComponent {
 
     createForm() {
         this.form = this.fb.group({
-            'teacher_id': ['', ], 
-            'first_name': ['', ],
-			'last_name': ['', ],
-			'email': ['', ],
-			'cnic': ['', ],
-			'phone_number': ['', ],
-			'qualification': ['', ],
-			'experience': ['', ],
-			'country': ['pakistan', ],
-            'city': ['sharaqpur sharif', ],
-            'mohallah': ['', ],
-            'street': ['', ],
-            'house_number': ['', ],
+            'teacher_id': ['', [Validators.required, Validators.minLength(2)]], 
+            'first_name': ['', [Validators.required, Validators.minLength(3), Validators.maxLength(30)]],
+			'last_name': ['', [Validators.required, Validators.minLength(3), Validators.maxLength(30)]],
+			'email': ['', [Validators.required, Validators.email]],
+			'cnic': ['', [Validators.required, Validators.minLength(13)]],
+			'phone_number': ['', [Validators.required, Validators.minLength(11), Validators.maxLength(13)]],
+			'qualification': ['', [Validators.required, Validators.minLength(1)]],
+			'experience': ['', [Validators.required, Validators.minLength(1)]],
+			'country': ['Pakistan', Validators.required],
+            'city': ['Sharaqpur Sharif', [Validators.required, Validators.minLength(3)]],
+            'mohallah': ['', [Validators.required, Validators.minLength(3)]],
+            'street': ['', [Validators.required, Validators.minLength(1)]],
+            'house_number': ['', [Validators.required, Validators.minLength(1)]],
         })
     }
 

@@ -2,18 +2,22 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-import { HomeRouting } from '../home/home.routing';
-import { HomeComponent } from './home.component';
-import { HeaderComponent } from '../../components/header/header.component';
-import { FooterComponent } from '../../components/footer/footer.component';
-import { SidebarComponent } from '../../components/sidebar/sidebar.component';
+import { HomeRouting } from 'src/app/components/auth/pages/home/home.routing';
+import { HomeComponent } from 'src/app/components/auth/pages/home/home.component';
+import { HeaderComponent } from 'src/app/components/auth/components/header/header.component';
+import { FooterComponent } from 'src/app/components/auth/components/footer/footer.component';
+import { SidebarComponent } from 'src/app/components/auth/components/sidebar/sidebar.component';
 
-import { AllTeachersComponent } from '../teachers/all-teachers/all-teachers.component';
-import { AllStudentsComponent } from '../students/all-students/all-students.component';
-import { NewTeacherComponent } from '../teachers/new-teacher/new-teacher.component';
-import { NewStudentComponent } from '../students/new-student/new-student.component';
-import { UpdateStudentComponent } from '../students/update-student/update-student.component';
-import { UpdateTeacherComponent } from '../teachers/update-teacher/update-teacher.component';
+import { AllTeachersComponent } from 'src/app/components/auth/pages/teachers/all-teachers/all-teachers.component';
+import { AllStudentsComponent } from 'src/app/components/auth/pages/students/all-students/all-students.component';
+import { NewTeacherComponent } from 'src/app/components/auth/pages/teachers/new-teacher/new-teacher.component';
+import { NewStudentComponent } from 'src/app/components/auth/pages/students/new-student/new-student.component';
+import { UpdateStudentComponent } from 'src/app/components/auth/pages/students/update-student/update-student.component';
+import { UpdateTeacherComponent } from 'src/app/components/auth/pages/teachers/update-teacher/update-teacher.component';
+import { NewFeeComponent } from 'src/app/components/auth/pages/fee/new-fee/new-fee.component';
+import { FeePaidComponent } from 'src/app/components/auth/pages/fee/fee-paid/fee-paid.component';
+import { FeeUnpaidComponent } from 'src/app/components/auth/pages/fee/fee-unpaid/fee-unpaid.component';
+import { UpdateFeeComponent } from 'src/app/components/auth/pages/fee/update-fee/update-fee.component';
 import { FilterIconRenderer } from 'src/app/components/cell-rendering-components/filter-icon-rendering/filter-icon-rendering.component';
 
 import { AccordionModule } from 'ngx-bootstrap/accordion';
@@ -21,6 +25,7 @@ import { AgGridModule } from 'ag-grid-angular';
 import { MomentModule } from 'ngx-moment';
 import { NgxSpinnerModule } from "ngx-spinner";
 import { ToastrModule } from 'ngx-toastr';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 
 @NgModule({
     declarations: [
@@ -33,7 +38,11 @@ import { ToastrModule } from 'ngx-toastr';
         AllStudentsComponent,
         NewStudentComponent,
         UpdateStudentComponent,
-        UpdateTeacherComponent
+        UpdateTeacherComponent,
+        NewFeeComponent,
+        FeePaidComponent,
+        FeeUnpaidComponent,
+        UpdateFeeComponent
     ],
     imports: [
         HomeRouting,
@@ -44,6 +53,7 @@ import { ToastrModule } from 'ngx-toastr';
         NgxSpinnerModule,
         ToastrModule.forRoot(),
         AccordionModule.forRoot(),
+        BsDatepickerModule.forRoot(), 
         AgGridModule.withComponents([
             FilterIconRenderer
         ]),

@@ -29,20 +29,20 @@ export class NewStudentComponent {
 
     createForm() {
         this.form = this.fb.group({
-            'roll_number': ['', ],
-            'first_name': ['', ],
-			'last_name': ['', ],
-            'b_form': ['', ],
-            'class': ['', ],
+            'roll_number': ['', [Validators.required, Validators.minLength(2)]],
+            'first_name': ['', [Validators.required, Validators.minLength(3), Validators.maxLength(30)]],
+			'last_name': ['', [Validators.required, Validators.minLength(3), Validators.maxLength(30)]],
+            'b_form': ['', [Validators.required, Validators.minLength(13)]],
+            'class': ['', [Validators.required, Validators.minLength(1)]],
             'previous_school': ['None', ],
-            'country': ['pakistan', ],
-            'city': ['sharaqpur sharif', ],
-            'mohallah': ['', ],
-            'street': ['', ],
-            'house_number': ['', ],
-            'father_name': ['', ],
-            'father_cnic': ['', ],
-			'phone_number': ['', ],
+            'country': ['Pakistan', Validators.required],
+            'city': ['Sharaqpur Sharif', [Validators.required, Validators.minLength(3)]],
+            'mohallah': ['', [Validators.required, Validators.minLength(3)]],
+            'street': ['', [Validators.required, Validators.minLength(1)]],
+            'house_number': ['', [Validators.required, Validators.minLength(1)]],
+            'father_name': ['', [Validators.required, Validators.minLength(3), Validators.maxLength(30)]],
+            'father_cnic': ['', [Validators.required, Validators.minLength(13)]],
+			'phone_number': ['', [Validators.required, Validators.minLength(11), Validators.maxLength(13)]],
         })
     }
 
