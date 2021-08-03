@@ -29,7 +29,7 @@ export class NewTeacherComponent {
 
     createForm() {
         this.form = this.fb.group({
-            'teacher_id': ['', [Validators.required, Validators.minLength(2)]], 
+            'teacher_id': ['', [Validators.required, Validators.minLength(2)]],
             'first_name': ['', [Validators.required, Validators.minLength(3), Validators.maxLength(30)]],
 			'last_name': ['', [Validators.required, Validators.minLength(3), Validators.maxLength(30)]],
 			'email': ['', [Validators.required, Validators.email]],

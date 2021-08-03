@@ -45,6 +45,14 @@ export class AllStudentsComponent {
             suppressSizeToFit: true, 
         },
         {
+            field: 'computer_number', 
+            headerName: 'Computer No',
+            headerTooltip: 'Computer No',
+            width: 120, 
+            suppressMovable: true, 
+            suppressSizeToFit: true, 
+        },
+        {
             field: 'first_name', 
             headerName: 'First Name',
             headerTooltip: 'First Name', 
@@ -76,6 +84,7 @@ export class AllStudentsComponent {
             field: 'country', 
             headerName: 'Country', 
             headerTooltip: 'Country',
+            hide: true
         },
         {
             field: 'city', 

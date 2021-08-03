@@ -38,38 +38,49 @@ export class NewFeeComponent implements OnInit {
 
     createForm() {
         this.form = this.fb.group({
-            'roll_number': [{value: '', disabled: false}, ],
+            'roll_number': [{value: '', disabled: false}, [Validators.required, Validators.minLength(2)]],
             'name': [{value: '', disabled: false}, ],
             'father_name': [{value: '', disabled: false}, ],
-            'class': [{value: '', disabled: false}, ],
+            'class': [{value: undefined, disabled: false}, [Validators.required, Validators.minLength(1)]],
             'amount': ['', ],
             'month': ['', ],
         })
     }
 
     FormValueChanges() {
-        this.form.controls['name'].valueChanges.subscribe((data:any) => {
-            if(data) {
-                this.form.get('roll_number').disable();
-                this.form.get('name').disable();
-                this.form.get('father_name').disable();
-                this.form.get('class').disable();
+        this.form.controls.name.valueChanges.subscribe((name:any) => {
+            if(name) {
+                this.form.get('name').disable({emitEvent: false});
             }
         });
+
+        this.form.controls.father_name.valueChanges.subscribe((father_name:any) => {
+            if(father_name) {
+                this.form.get('father_name').disable({emitEvent: false});
+            }
+        });
+    }
+
+    resetPayingProcess() {
+        this.student_info = undefined;
     }
 
 	fetchStudent() {
 		if(this.form.valid) {
             this.spinner.show(this.spinner_name);
-            
+
             if(this.student_info) {
-                let form_raw_alue = this.form.getRawValue();
+                let form_raw_value = this.form.getRawValue();
                 let form_value = this.form.value;
 
+                let computer_number = this.student_info.computer_number; 
+
                 let data = {
-                    roll_number: form_raw_alue.roll_number,
-                    class: form_raw_alue.class,
-                    month: form_value.month,
+                    roll_number: form_raw_value.roll_number,
+                    computer_number: (computer_number) ? computer_number : 'none',
+                    name: form_raw_value.name,
+                    class: form_raw_value.class,
+                    month: this.form.value.month,
                     amount: form_value.amount,
                     remaining_amount: 0,
                     status: 'paid'
@@ -88,7 +99,7 @@ export class NewFeeComponent implements OnInit {
                 this.api_service.fetchStudentForFee(this.form.value).subscribe((response:any) => {
                     console.log(response);
                     this.spinner.hide(this.spinner_name);
-                    this.toastr.success('Student record is created');
+                    this.toastr.success('Student record is fetched');
     
                     this.student_info = response;
     

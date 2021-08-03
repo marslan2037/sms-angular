@@ -17,15 +17,56 @@
                         placeholder="Roll No" 
                         formControlName="roll_number"
                     />
+
+                    <ng-container 
+                        *ngIf="
+                            form.controls.roll_number.invalid && 
+                            form.controls.roll_number.touched && 
+                            form.controls.roll_number.dirty
+                        "
+                    >
+                        <p class="has-error" *ngIf="form.controls.roll_number.errors?.required">
+                            This field is required.
+                        </p>
+
+                        <p class="has-error" *ngIf="form.controls.roll_number.errors?.minlength">
+                            The minimum length for this field is {{form.controls.roll_number.errors.minlength.requiredLength}} characters.
+                        </p>
+                    </ng-container>
                 </div>
     
                 <div class="single-form-field">
                     <label>Class</label>
-                    <input 
-                        type="text" 
-                        placeholder="Enter assigned class" 
-                        formControlName="class"  
-                    />
+                    <div class="pos-relative custom-select-arrow">
+                        <select formControlName="class">
+                            <option value="undefined">Select Value</option>
+                            <option value="play group">Play Group</option>
+                            <option value="nursery">Nursery</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+
+                        <i class="fa fa-angle-down"></i>
+                    </div>
+
+                    <ng-container 
+                        *ngIf="
+                            form.controls.class.invalid && 
+                            form.controls.class.touched && 
+                            form.controls.class.dirty
+                        "
+                    >
+                        <p class="has-error" *ngIf="form.controls.class.errors?.required">
+                            This field is required.
+                        </p>
+
+                        <p class="has-error" *ngIf="form.controls.class.errors?.minlength">
+                            The minimum length for this field is {{form.controls.class.errors.minlength.requiredLength}} characters.
+                        </p>
+                    </ng-container>
                 </div>
             </div>
 
@@ -91,8 +132,16 @@
         </div>
         
         <button
-            [ngClass]="{'disbaled': (form.touched && !form.valid)}" 
+            [ngClass]="{'disbaled': !form.valid}" 
             [disabled]="!form.valid"
         >{{(student_info) ? 'Pay Now': 'Fetch Student'}}</button>
+
+        <br />
+
+        <button
+            class="f-o-button"
+            *ngIf="student_info" 
+            (click)="resetPayingProcess()"
+        >Fetch Other Student</button>
     </form>
 </div>

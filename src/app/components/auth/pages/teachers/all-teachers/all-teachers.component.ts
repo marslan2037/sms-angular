@@ -45,6 +45,14 @@ export class AllTeachersComponent {
             suppressSizeToFit: true, 
         },
         {
+            field: 'computer_number', 
+            headerName: 'Computer Number',
+            headerTooltip: 'Computer Number',
+            width: 120, 
+            suppressMovable: true, 
+            suppressSizeToFit: true, 
+        },
+        {
             field: 'first_name', 
             headerName: 'First Name',
             headerTooltip: 'First Name', 

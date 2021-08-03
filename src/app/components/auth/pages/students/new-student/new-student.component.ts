@@ -33,7 +33,7 @@ export class NewStudentComponent {
             'first_name': ['', [Validators.required, Validators.minLength(3), Validators.maxLength(30)]],
 			'last_name': ['', [Validators.required, Validators.minLength(3), Validators.maxLength(30)]],
             'b_form': ['', [Validators.required, Validators.minLength(13)]],
-            'class': ['', [Validators.required, Validators.minLength(1)]],
+            'class': [{value: undefined}, [Validators.required, Validators.minLength(1)]],
             'previous_school': ['None', ],
             'country': ['Pakistan', Validators.required],
             'city': ['Sharaqpur Sharif', [Validators.required, Validators.minLength(3)]],

@@ -42,9 +42,24 @@ export class FeePaidComponent implements OnInit {
             headerTooltip: 'Roll No' 
         },
         {
+            field: 'computer_number', 
+            headerName: 'Computer Number',
+            headerTooltip: 'Computer Number' 
+        },
+        {
+            field: 'name', 
+            headerName: 'Name',
+            headerTooltip: 'Name' 
+        },
+        {
             field: 'class', 
             headerName: 'Class',
             headerTooltip: 'Class',
+        },
+        {
+            field: 'amount', 
+            headerName: 'Amount',
+            headerTooltip: 'Amount',
         },
         // {
         //     field: 'name', 
@@ -63,7 +78,7 @@ export class FeePaidComponent implements OnInit {
             valueGetter: (data:any) => {
                 console.log(data.data)
                 if(data.data.month) {
-                    return moment(data.data.month).tz('UTC').format('M/YYYY');
+                    return moment(data.data.month).format('M/YYYY');
                 }
             },
         },
@@ -74,7 +89,7 @@ export class FeePaidComponent implements OnInit {
             valueGetter: (data:any) => {
                 console.log(data.data.date)
                 if(data.data.date) {
-                    return moment(data.data.date).tz('UTC').format('M/D/YYYY (ddd)');
+                    return moment(data.data.date).format('M/D/YYYY (ddd)');
                 }
             },
         },
