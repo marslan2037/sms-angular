@@ -7,27 +7,57 @@
     
     <form [formGroup]="form" (ngSubmit)="submit()">
         <div>
-            <label class="section-heading">Student Information</label>
+            <label class="section-heading">Personal Information</label>
 
             <div class="have-grid two-column">
                 <div class="single-form-field">
                     <label>First Name</label>
                     <input type="text" placeholder="First name" formControlName="first_name" />
-        
-                    <p 
-                        class="has-error" 
-                        *ngIf="!form.controls.first_name.valid && form.controls.first_name.valid"
-                    >First Name is required</p>
+                    
+                    <ng-container 
+                        *ngIf="
+                            form.controls.first_name.invalid && 
+                            form.controls.first_name.touched && 
+                            form.controls.first_name.dirty
+                        "
+                    >
+                        <p class="has-error" *ngIf="form.controls.first_name.errors?.required">
+                            This field is required.
+                        </p>
+
+                        <p class="has-error" *ngIf="form.controls.first_name.errors?.minlength">
+                            The minimum length for this field is {{form.controls.first_name.errors.minlength.requiredLength}} characters.
+                        </p>
+
+                        <p class="has-error" *ngIf="form.controls.first_name.errors?.maxlength">
+                            The maximum length for this field is {{form.controls.first_name.errors.maxlength.requiredLength}} characters.
+                        </p>
+                    </ng-container>
                 </div>
         
                 <div class="single-form-field">
                     <label>Last Name</label>
                     <input type="text" placeholder="Last name" formControlName="last_name" />
         
-                    <p 
-                        class="has-error" 
-                        *ngIf="!form.controls.last_name.valid && form.controls.last_name.valid"
-                    >Last Name is required</p>
+                    <ng-container 
+                        *ngIf="
+                            form.controls.last_name.invalid && 
+                            form.controls.last_name.touched && 
+                            form.controls.last_name.dirty
+                        "
+                    >
+                        <p class="has-error" *ngIf="form.controls.last_name.errors?.required">
+                            This field is required.
+                        </p>
+
+                        <p class="has-error" *ngIf="form.controls.last_name.errors?.minlength">
+                            The minimum length for this field is {{form.controls.last_name.errors.minlength.requiredLength}} characters.
+                        </p>
+
+                        <p class="has-error" *ngIf="form.controls.last_name.errors?.maxlength">
+                            The maximum length for this field is {{form.controls.last_name.errors.maxlength.requiredLength}} characters.
+                        </p>
+                    </ng-container>
                 </div>
             </div>
 
@@ -35,11 +65,145 @@
                 <div class="single-form-field">
                     <label>Roll No</label>
                     <input type="email" placeholder="Roll No" formControlName="roll_number" />
+
+                    <ng-container 
+                        *ngIf="
+                            form.controls.roll_number.invalid && 
+                            form.controls.roll_number.touched && 
+                            form.controls.roll_number.dirty
+                        "
+                    >
+                        <p class="has-error" *ngIf="form.controls.roll_number.errors?.required">
+                            This field is required.
+                        </p>
+
+                        <p class="has-error" *ngIf="form.controls.roll_number.errors?.minlength">
+                            The minimum length for this field is {{form.controls.roll_number.errors.minlength.requiredLength}} characters.
+                        </p>
+                    </ng-container>
                 </div>
     
                 <div class="single-form-field">
                     <label>Class</label>
-                    <input type="text" placeholder="Enter assigned class" formControlName="class" />
+                    <div class="pos-relative custom-select-arrow">
+                        <select formControlName="class">
+                            <option value="undefined">Select Value</option>
+                            <option value="play group">Play Group</option>
+                            <option value="nursery">Nursery</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+
+                        <i class="fa fa-angle-down"></i>
+                    </div>
+
+                    <ng-container 
+                        *ngIf="
+                            form.controls.class.invalid && 
+                            form.controls.class.touched && 
+                            form.controls.class.dirty
+                        "
+                    >
+                        <p class="has-error" *ngIf="form.controls.class.errors?.required">
+                            This field is required.
+                        </p>
+
+                        <p class="has-error" *ngIf="form.controls.class.errors?.minlength">
+                            The minimum length for this field is {{form.controls.class.errors.minlength.requiredLength}} characters.
+                        </p>
+                    </ng-container>
+                </div>
+            </div>
+
+            <div class="have-grid two-column">
+                <div class="single-form-field">
+                    <label>Nationality</label>
+                    <div class="pos-relative custom-select-arrow">
+                        <select formControlName="nationality">
+                            <option value="undefined">Select Value</option>
+                            <option value="pakistani">Pakistani</option>
+                        </select>
+
+                        <i class="fa fa-angle-down"></i>
+                    </div>
+
+                    <ng-container 
+                        *ngIf="
+                            form.controls.nationality.invalid && 
+                            form.controls.nationality.touched && 
+                            form.controls.nationality.dirty
+                        "
+                    >
+                        <p class="has-error" *ngIf="form.controls.nationality.errors?.required">
+                            This field is required.
+                        </p>
+
+                        <p class="has-error" *ngIf="form.controls.nationality.errors?.minlength">
+                            The minimum length for this field is {{form.controls.nationality.errors.minlength.requiredLength}} characters.
+                        </p>
+                    </ng-container>
+                </div>
+    
+                <div class="single-form-field">
+                    <label>Religion</label>
+                    <div class="pos-relative custom-select-arrow">
+                        <select formControlName="religion">
+                            <option value="undefined">Select Value</option>
+                            <option value="islam">Islam</option>
+                            <option value="other">Other</option>
+                        </select>
+
+                        <i class="fa fa-angle-down"></i>
+                    </div>
+
+                    <ng-container 
+                        *ngIf="
+                            form.controls.religion.invalid && 
+                            form.controls.religion.touched && 
+                            form.controls.religion.dirty
+                        "
+                    >
+                        <p class="has-error" *ngIf="form.controls.religion.errors?.required">
+                            This field is required.
+                        </p>
+
+                        <p class="has-error" *ngIf="form.controls.religion.errors?.minlength">
+                            The minimum length for this field is {{form.controls.religion.errors.minlength.requiredLength}} characters.
+                        </p>
+                    </ng-container>
+                </div>
+            </div>
+
+            <div class="have-grid">
+                <div class="single-form-field">
+                    <label>Date of Birth</label>
+                    <input 
+                        type="text"
+                        autocomplete="off" 
+                        name="date" 
+                        bsDatepicker  
+                        placeholder="Date of Birth" 
+                        formControlName="date_of_birth" 
+                    />
+
+                    <ng-container 
+                        *ngIf="
+                            form.controls.date_of_birth.invalid && 
+                            form.controls.date_of_birth.touched && 
+                            form.controls.date_of_birth.dirty
+                        "
+                    >
+                        <p class="has-error" *ngIf="form.controls.date_of_birth.errors?.required">
+                            This field is required.
+                        </p>
+
+                        <p class="has-error" *ngIf="form.controls.date_of_birth.errors?.minlength">
+                            The minimum length for this field is {{form.controls.date_of_birth.errors.minlength.requiredLength}} characters.
+                        </p>
+                    </ng-container>
                 </div>
             </div>
 
@@ -47,6 +211,22 @@
                 <div class="single-form-field">
                     <label>B Form</label>
                     <input type="text" placeholder="B Form" formControlName="b_form" />
+
+                    <ng-container 
+                        *ngIf="
+                            form.controls.b_form.invalid && 
+                            form.controls.b_form.touched && 
+                            form.controls.b_form.dirty
+                        "
+                    >
+                        <p class="has-error" *ngIf="form.controls.b_form.errors?.required">
+                            This field is required.
+                        </p>
+
+                        <p class="has-error" *ngIf="form.controls.b_form.errors?.minlength">
+                            The minimum length for this field is {{form.controls.b_form.errors.minlength.requiredLength}} characters.
+                        </p>
+                    </ng-container>
                 </div>
     
                 <div class="single-form-field">
@@ -62,20 +242,47 @@
             <div class="have-grid two-column">
                 <div class="single-form-field">
                     <label>Counry</label>
-                    <select formControlName="country">
-                        <option>Select Value</option>
-                        <option value="pakistan">Pakistan</option>
-                    </select>
+                    <div class="pos-relative custom-select-arrow">
+                        <select formControlName="country">
+                            <option value="undefined">Select Value</option>
+                            <option value="Pakistan">Pakistan</option>
+                        </select>
+
+                        <i class="fa fa-angle-down"></i>
+                    </div>
+
+                    <ng-container 
+                        *ngIf="
+                            form.controls.country.invalid && 
+                            form.controls.country.touched && 
+                            form.controls.country.dirty
+                        "
+                    >
+                        <p class="has-error" *ngIf="form.controls.country.errors?.required">
+                            This field is required.
+                        </p>
+                    </ng-container>
                 </div>
                 
                 <div class="single-form-field">
                     <label>City / Village</label>
                     <input type="text" placeholder="City / Village" formControlName="city" />
         
-                    <p 
-                        class="has-error" 
-                        *ngIf="!form.controls.phone_number.valid && form.controls.phone_number.valid"
-                    >Phone Number is required</p>
+                    <ng-container 
+                        *ngIf="
+                            form.controls.city.invalid && 
+                            form.controls.city.touched && 
+                            form.controls.city.dirty
+                        "
+                    >
+                        <p class="has-error" *ngIf="form.controls.city.errors?.required">
+                            This field is required.
+                        </p>
+
+                        <p class="has-error" *ngIf="form.controls.city.errors?.minlength">
+                            The minimum length for this field is {{form.controls.city.errors.minlength.requiredLength}} characters.
+                        </p>
+                    </ng-container>
                 </div>
             </div>
 
@@ -83,6 +290,22 @@
                 <div class="single-form-field">
                     <label>Mohallah</label>
                     <input type="text" placeholder="Mohallah Name" formControlName="mohallah" />
+
+                    <ng-container 
+                        *ngIf="
+                            form.controls.mohallah.invalid && 
+                            form.controls.mohallah.touched && 
+                            form.controls.mohallah.dirty
+                        "
+                    >
+                        <p class="has-error" *ngIf="form.controls.mohallah.errors?.required">
+                            This field is required.
+                        </p>
+
+                        <p class="has-error" *ngIf="form.controls.mohallah.errors?.minlength">
+                            The minimum length for this field is {{form.controls.mohallah.errors.minlength.requiredLength}} characters.
+                        </p>
+                    </ng-container>
                 </div>
             </div>
     
@@ -90,16 +313,43 @@
                 <div class="single-form-field">
                     <label>Street</label>
                     <input type="text" placeholder="Street" formControlName="street" />
+
+                    <ng-container 
+                        *ngIf="
+                            form.controls.street.invalid && 
+                            form.controls.street.touched && 
+                            form.controls.street.dirty
+                        "
+                    >
+                        <p class="has-error" *ngIf="form.controls.street.errors?.required">
+                            This field is required.
+                        </p>
+
+                        <p class="has-error" *ngIf="form.controls.street.errors?.minlength">
+                            The minimum length for this field is {{form.controls.street.errors.minlength.requiredLength}} characters.
+                        </p>
+                    </ng-container>
                 </div>
                 
                 <div class="single-form-field">
                     <label>House No.</label>
                     <input type="text" placeholder="House No" formControlName="house_number" />
         
-                    <p 
-                        class="has-error" 
-                        *ngIf="!form.controls.phone_number.valid && form.controls.phone_number.valid"
-                    >Phone Number is required</p>
+                    <ng-container 
+                        *ngIf="
+                            form.controls.house_number.invalid && 
+                            form.controls.house_number.touched && 
+                            form.controls.house_number.dirty
+                        "
+                    >
+                        <p class="has-error" *ngIf="form.controls.house_number.errors?.required">
+                            This field is required.
+                        </p>
+
+                        <p class="has-error" *ngIf="form.controls.house_number.errors?.minlength">
+                            The minimum length for this field is {{form.controls.house_number.errors.minlength.requiredLength}} characters.
+                        </p>
+                    </ng-container>
                 </div>
             </div>
         </div>
@@ -111,16 +361,91 @@
                 <div class="single-form-field">
                     <label>Father Name</label>
                     <input type="text" placeholder="Father Name" formControlName="father_name" />
+
+                    <ng-container 
+                        *ngIf="
+                            form.controls.father_name.invalid && 
+                            form.controls.father_name.touched && 
+                            form.controls.father_name.dirty
+                        "
+                    >
+                        <p class="has-error" *ngIf="form.controls.father_name.errors?.required">
+                            This field is required.
+                        </p>
+
+                        <p class="has-error" *ngIf="form.controls.father_name.errors?.minlength">
+                            The minimum length for this field is {{form.controls.father_name.errors.minlength.requiredLength}} characters.
+                        </p>
+
+                        <p class="has-error" *ngIf="form.controls.father_name.errors?.maxlength">
+                            The maximum length for this field is {{form.controls.father_name.errors.maxlength.requiredLength}} characters.
+                        </p>
+                    </ng-container>
                 </div>
                 
                 <div class="single-form-field">
                     <label>Father CNIC</label>
                     <input type="text" placeholder="Father CNIC" formControlName="father_cnic" />
         
-                    <p 
-                        class="has-error" 
-                        *ngIf="!form.controls.phone_number.valid && form.controls.phone_number.valid"
-                    >Phone Number is required</p>
+                    <ng-container 
+                        *ngIf="
+                            form.controls.father_cnic.invalid && 
+                            form.controls.father_cnic.touched && 
+                            form.controls.father_cnic.dirty
+                        "
+                    >
+                        <p class="has-error" *ngIf="form.controls.father_cnic.errors?.required">
+                            This field is required.
+                        </p>
+
+                        <p class="has-error" *ngIf="form.controls.father_cnic.errors?.minlength">
+                            The minimum length for this field is {{form.controls.father_cnic.errors.minlength.requiredLength}} characters.
+                        </p>
+                    </ng-container>
+                </div>
+            </div>
+
+            <div class="have-grid two-column">
+                <div class="single-form-field">
+                    <label>Father Occupation</label>
+                    <input type="text" placeholder="Father Occupation" formControlName="father_occupation" />
+
+                    <ng-container 
+                        *ngIf="
+                            form.controls.father_occupation.invalid && 
+                            form.controls.father_occupation.touched && 
+                            form.controls.father_occupation.dirty
+                        "
+                    >
+                        <p class="has-error" *ngIf="form.controls.father_occupation.errors?.required">
+                            This field is required.
+                        </p>
+
+                        <p class="has-error" *ngIf="form.controls.father_occupation.errors?.minlength">
+                            The minimum length for this field is {{form.controls.father_occupation.errors.minlength.requiredLength}} characters.
+                        </p>
+                    </ng-container>
+                </div>
+                
+                <div class="single-form-field">
+                    <label>Father Education</label>
+                    <input type="text" placeholder="Father Education" formControlName="father_education" />
+        
+                    <ng-container 
+                        *ngIf="
+                            form.controls.father_education.invalid && 
+                            form.controls.father_education.touched && 
+                            form.controls.father_education.dirty
+                        "
+                    >
+                        <p class="has-error" *ngIf="form.controls.father_education.errors?.required">
+                            This field is required.
+                        </p>
+
+                        <p class="has-error" *ngIf="form.controls.father_education.errors?.minlength">
+                            The minimum length for this field is {{form.controls.father_education.errors.minlength.requiredLength}} characters.
+                        </p>
+                    </ng-container>
                 </div>
             </div>
     
@@ -129,14 +454,33 @@
                     <label>Phone No.</label>
                     <input type="text" placeholder="Phone number" formControlName="phone_number" />
         
-                    <p 
-                        class="has-error" 
-                        *ngIf="!form.controls.phone_number.valid && form.controls.phone_number.valid"
-                    >Phone Number is required</p>
+                    <ng-container 
+                        *ngIf="
+                            form.controls.phone_number.invalid && 
+                            form.controls.phone_number.touched && 
+                            form.controls.phone_number.dirty
+                        "
+                    >
+                        <p class="has-error" *ngIf="form.controls.phone_number.errors?.required">
+                            This field is required.
+                        </p>
+
+                        <p class="has-error" *ngIf="form.controls.phone_number.errors?.minlength">
+                            The minimum length for this field is {{form.controls.phone_number.errors.minlength.requiredLength}} characters.
+                        </p>
+
+                        <p class="has-error" *ngIf="form.controls.phone_number.errors?.maxlength">
+                            The maximum length for this field is {{form.controls.phone_number.errors.maxlength.requiredLength}} characters.
+                        </p>
+                    </ng-container>
                 </div>
             </div>
         </div>
 
-        <button [ngClass]="{'disbaled': (form.touched && !form.valid)}" [disabled]="!form.valid">Update</button>
+        <button
+            class="primary-button" 
+            [ngClass]="{'disbaled': !form.valid}" 
+            [disabled]="!form.valid"
+        >Update</button>
     </form>
 </div>

@@ -324,6 +324,10 @@
             </div>
         </div>
         
-        <button [ngClass]="{'disbaled': !form.valid}" [disabled]="!form.valid">Add</button>
+        <button
+            class="primary-button" 
+            [ngClass]="{'disbaled': !form.valid}" 
+            [disabled]="!form.valid"
+        >Add</button>
     </form>
 </div>

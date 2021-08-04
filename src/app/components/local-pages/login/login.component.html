@@ -25,7 +25,11 @@
             >Password is required</p>
         </div>
         
-        <button [ngClass]="{'disbaled': (form.touched && !form.valid)}" [disabled]="!form.valid">Login</button>
+        <button
+            class="primary-button" 
+            [ngClass]="{'disbaled': !form.valid}" 
+            [disabled]="!form.valid"
+        >Login</button>
     </form>
 
     <p class="align-center another-action">Don't have an account? <a routerLink="/add-user" class="text-link">Register</a></p>

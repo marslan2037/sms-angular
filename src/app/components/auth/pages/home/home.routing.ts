@@ -12,6 +12,7 @@ import { NewFeeComponent } from 'src/app/components/auth/pages/fee/new-fee/new-f
 import { FeePaidComponent } from 'src/app/components/auth/pages/fee/fee-paid/fee-paid.component';
 import { FeeUnpaidComponent } from 'src/app/components/auth/pages/fee/fee-unpaid/fee-unpaid.component';
 import { UpdateFeeComponent } from 'src/app/components/auth/pages/fee/update-fee/update-fee.component';
+import { PrintStudentComponent } from '../students/print-student/print-student.component';
 
 const routes: Routes = [
 
@@ -32,6 +33,8 @@ const routes: Routes = [
                 path: 'teachers/:id',
                 component: UpdateTeacherComponent
             },
+            
+            //STUDENTS ROUTES START
             {
                 path: 'students',
                 component: AllStudentsComponent
@@ -44,6 +47,12 @@ const routes: Routes = [
                 path: 'students/:id',
                 component: UpdateStudentComponent
             },
+            {
+                path: 'students/:id/print',
+                component: PrintStudentComponent
+            },
+            //STUDENTS ROUTES START
+
             {
                 path: 'fee/pay',
                 component: NewFeeComponent

@@ -1,0 +1,132 @@
+<h4 class="section-heading">Print Section</h4>
+
+<div class="print-section-container">
+    <div class="btn-list">
+        <button
+            [printStyle]="{
+                h2: {
+                    'color': '#fff', 
+                    'background': 'black',
+                    'padding': '10px'
+                }
+            }"
+            class="primary-button" 
+            printSectionId="print-section" 
+            ngxPrint
+        >Print</button> 
+
+        <button
+            class="white-btn primary-button" 
+            routerLink="/home/students/add"
+        >Go Back</button>
+    </div>
+
+    <div id="print-section" *ngIf="student_info"> 
+        <div class="section-block">
+            <h2 class="dark-bg">Pakistan Public & Cadet School</h2>
+            <p><b>Branch: </b> Sharaqpur Shareef Branch</p>
+        </div>
+
+        <div class="have-grid two-columns">
+            <p class="content-row">
+                <span class="content-heading">Date:</span>
+                <span class="content-detail">{{student_info.date | date:'longDate'}}</span>
+            </p>
+
+            <p class="content-row">
+                <span class="content-heading">Computer Generated No:</span>
+                <span class="content-detail">{{student_info.computer_number}}</span>
+            </p>
+        </div>
+
+        <h4 class="dark-bg">Student Information</h4>
+
+        <div class="have-grid">
+            <p class="content-row">
+                <span class="content-heading">Roll No:</span>
+                <span class="content-detail">
+                    {{student_info.roll_number}}
+                </span>
+            </p>
+        </div>
+
+        <div class="have-grid two-columns">
+            <p class="content-row">
+                <span class="content-heading">Full Name:</span>
+                <span class="content-detail">{{student_info.first_name}} {{student_info.last_name}}</span>
+            </p>
+    
+            <p class="content-row">
+                <span class="content-heading">Son / Daughter of:</span>
+                <span class="content-detail">{{student_info.father_name}}</span>
+            </p>
+        </div>
+
+        <div class="have-grid">
+            <p class="content-row">
+                <span class="content-heading">Address:</span>
+                <span class="content-detail">
+                    House No. {{student_info.house_number}}, Street {{student_info.street}},
+                    Mohallah {{student_info.mohallah}}, {{student_info.city}}, {{student_info.country}}
+                </span>
+            </p>
+        </div>
+
+        <div class="have-grid two-columns">
+            <p class="content-row">
+                <span class="content-heading">B Form No:</span>
+                <span class="content-detail">{{student_info.b_form}}</span>
+            </p>
+    
+            <p class="content-row">
+                <span class="content-heading">Date of Birth:</span>
+                <span class="content-detail">{{student_info.date_of_birth}}</span>
+            </p>
+        </div>
+
+        <div class="have-grid two-columns">
+            <p class="content-row">
+                <span class="content-heading">Nationalatiy:</span>
+                <span class="content-detail">{{student_info.nationality}}</span>
+            </p>
+    
+            <p class="content-row">
+                <span class="content-heading">Relegion:</span>
+                <span class="content-detail">{{student_info.religion}}</span>
+            </p>
+        </div>
+
+        <h4 class="dark-bg">Parents Information</h4>
+
+        <div class="have-grid two-columns">
+            <p class="content-row">
+                <span class="content-heading">Father Name:</span>
+                <span class="content-detail">{{student_info.father_name}}</span>
+            </p>
+
+            <p class="content-row">
+                <span class="content-heading">Phone No:</span>
+                <span class="content-detail">{{student_info.phone_number}}</span>
+            </p>
+        </div>
+
+        <div class="have-grid two-columns">
+            <p class="content-row">
+                <span class="content-heading">Occupation:</span>
+                <span class="content-detail">{{student_info.father_occupation}}</span>
+            </p>
+    
+            <p class="content-row">
+                <span class="content-heading">Education:</span>
+                <span class="content-detail">{{student_info.father_education}}</span>
+            </p>
+        </div>
+
+        <div class="have-grid two-columns">
+            <p class="content-row">
+                <span class="content-heading">CNIC:</span>
+                <span class="content-detail">{{student_info.father_cnic}}</span>
+            </p>
+        </div>
+    </div>
+</div>

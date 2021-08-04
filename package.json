@@ -30,6 +30,7 @@
         "moment-timezone": "^0.5.32",
         "ngx-bootstrap": "^6.2.0",
         "ngx-moment": "^5.0.0",
+        "ngx-print": "^1.2.1",
         "ngx-spinner": "^11.0.2",
         "ngx-toastr": "^13.2.0",
         "rxjs": "~6.6.0",

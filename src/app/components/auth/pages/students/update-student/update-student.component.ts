@@ -32,20 +32,25 @@ export class UpdateStudentComponent {
 
     createForm() {
         this.form = this.fb.group({
-            'roll_number': ['', ],
-            'first_name': ['', ],
-			'last_name': ['', ],
-            'b_form': ['', ],
-            'class': ['', ],
+            'roll_number': ['', [Validators.required, Validators.minLength(2)]],
+            'first_name': ['', [Validators.required, Validators.minLength(3), Validators.maxLength(30)]],
+			'last_name': ['', [Validators.required, Validators.minLength(3), Validators.maxLength(30)]],
+			'religion': [{value: undefined, disabled: false}, [Validators.required, Validators.minLength(3), Validators.maxLength(30)]],
+			'nationality': [{value: undefined, disabled: false}, [Validators.required, Validators.minLength(3), Validators.maxLength(30)]],
+			'date_of_birth': ['', [Validators.required, Validators.minLength(3), Validators.maxLength(30)]],
+            'b_form': ['', [Validators.required, Validators.minLength(13)]],
+            'class': [{value: undefined, disabled: false}, [Validators.required, Validators.minLength(1)]],
             'previous_school': ['', ],
-            'country': ['', ],
-            'city': ['', ],
-            'mohallah': ['', ],
-            'street': ['', ],
-            'house_number': ['', ],
-            'father_name': ['', ],
-            'father_cnic': ['', ],
-			'phone_number': ['', ],
+            'country': [{value: undefined, disabled: false}, Validators.required],
+            'city': ['', [Validators.required, Validators.minLength(3)]],
+            'mohallah': ['', [Validators.required, Validators.minLength(3)]],
+            'street': ['', [Validators.required, Validators.minLength(1)]],
+            'house_number': ['', [Validators.required, Validators.minLength(1)]],
+            'father_name': ['', [Validators.required, Validators.minLength(3), Validators.maxLength(30)]],
+            'father_cnic': ['', [Validators.required, Validators.minLength(13)]],
+            'father_education': ['', [Validators.required, Validators.minLength(2)]],
+            'father_occupation': ['', [Validators.required, Validators.minLength(2)]],
+			'phone_number': ['', [Validators.required, Validators.minLength(11), Validators.maxLength(13)]],
         })
     }
 
@@ -65,6 +70,9 @@ export class UpdateStudentComponent {
                 roll_number: response.roll_number,
                 first_name: response.first_name,
                 last_name: response.last_name,
+                date_of_birth: new Date(response.date_of_birth),
+                nationality: response.nationality,
+                religion: response.religion,
                 b_form: response.b_form,
                 class: response.class,
                 previous_school: response.previous_school,
@@ -75,6 +83,8 @@ export class UpdateStudentComponent {
                 house_number: response.house_number,
                 father_name: response.father_name,
                 father_cnic: response.father_cnic,
+                father_occupation: response.father_occupation,
+                father_education: response.father_education,
                 phone_number: response.phone_number
             })
         }, error => {

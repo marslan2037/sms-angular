@@ -15,16 +15,12 @@ import { SignupComponent } from './components/local-pages/signup/signup.componen
 
 import { ApiService } from './services/api-service';
 import { AuthService } from './services/auth-service';
-import { StudentsFineComponent } from './components/auth/pages/students/students-fine/students-fine.component';
-import { TeachersFineComponent } from './components/auth/pages/teachers/teachers-fine/teachers-fine.component';
 
 @NgModule({
     declarations: [
         AppComponent,
         LoginComponent,
-        SignupComponent,
-        StudentsFineComponent,
-        TeachersFineComponent,
+        SignupComponent
     ],
     imports: [
         BrowserModule,

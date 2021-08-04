@@ -125,6 +125,10 @@
             </div>
         </div>
         
-        <button [ngClass]="{'disbaled': (form.touched && !form.valid)}" [disabled]="!form.valid">Update</button>
+        <button
+            class="primary-button" 
+            [ngClass]="{'disbaled': !form.valid}" 
+            [disabled]="!form.valid"
+        >Update</button>
     </form>
 </div>

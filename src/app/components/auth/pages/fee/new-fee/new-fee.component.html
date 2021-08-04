@@ -132,6 +132,7 @@
         </div>
         
         <button
+            class="primary-button"
             [ngClass]="{'disbaled': !form.valid}" 
             [disabled]="!form.valid"
         >{{(student_info) ? 'Pay Now': 'Fetch Student'}}</button>
@@ -139,7 +140,7 @@
         <br />
 
         <button
-            class="f-o-button"
+            class="white-btn primary-button"
             *ngIf="student_info" 
             (click)="resetPayingProcess()"
         >Fetch Other Student</button>

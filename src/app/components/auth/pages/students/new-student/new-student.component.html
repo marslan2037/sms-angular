@@ -87,7 +87,7 @@
                     <label>Class</label>
                     <div class="pos-relative custom-select-arrow">
                         <select formControlName="class">
-                            <option value="undefined" [selected]="true">Select Value</option>
+                            <option value="undefined">Select Value</option>
                             <option value="play group">Play Group</option>
                             <option value="nursery">Nursery</option>
                             <option value="1">1</option>
@@ -113,6 +113,95 @@
 
                         <p class="has-error" *ngIf="form.controls.class.errors?.minlength">
                             The minimum length for this field is {{form.controls.class.errors.minlength.requiredLength}} characters.
+                        </p>
+                    </ng-container>
+                </div>
+            </div>
+
+            <div class="have-grid two-column">
+                <div class="single-form-field">
+                    <label>Nationality</label>
+                    <div class="pos-relative custom-select-arrow">
+                        <select formControlName="nationality">
+                            <option value="undefined">Select Value</option>
+                            <option value="pakistani">Pakistani</option>
+                        </select>
+
+                        <i class="fa fa-angle-down"></i>
+                    </div>
+
+                    <ng-container 
+                        *ngIf="
+                            form.controls.nationality.invalid && 
+                            form.controls.nationality.touched && 
+                            form.controls.nationality.dirty
+                        "
+                    >
+                        <p class="has-error" *ngIf="form.controls.nationality.errors?.required">
+                            This field is required.
+                        </p>
+
+                        <p class="has-error" *ngIf="form.controls.nationality.errors?.minlength">
+                            The minimum length for this field is {{form.controls.nationality.errors.minlength.requiredLength}} characters.
+                        </p>
+                    </ng-container>
+                </div>
+    
+                <div class="single-form-field">
+                    <label>Religion</label>
+                    <div class="pos-relative custom-select-arrow">
+                        <select formControlName="religion">
+                            <option value="undefined">Select Value</option>
+                            <option value="islam">Islam</option>
+                            <option value="other">Other</option>
+                        </select>
+
+                        <i class="fa fa-angle-down"></i>
+                    </div>
+
+                    <ng-container 
+                        *ngIf="
+                            form.controls.religion.invalid && 
+                            form.controls.religion.touched && 
+                            form.controls.religion.dirty
+                        "
+                    >
+                        <p class="has-error" *ngIf="form.controls.religion.errors?.required">
+                            This field is required.
+                        </p>
+
+                        <p class="has-error" *ngIf="form.controls.religion.errors?.minlength">
+                            The minimum length for this field is {{form.controls.religion.errors.minlength.requiredLength}} characters.
+                        </p>
+                    </ng-container>
+                </div>
+            </div>
+
+            <div class="have-grid">
+                <div class="single-form-field">
+                    <label>Date of Birth</label>
+                    <input 
+                        type="text"
+                        autocomplete="off" 
+                        name="date" 
+                        bsDatepicker  
+                        placeholder="Date of Birth" 
+                        formControlName="date_of_birth" 
+                    />
+
+                    <ng-container 
+                        *ngIf="
+                            form.controls.date_of_birth.invalid && 
+                            form.controls.date_of_birth.touched && 
+                            form.controls.date_of_birth.dirty
+                        "
+                    >
+                        <p class="has-error" *ngIf="form.controls.date_of_birth.errors?.required">
+                            This field is required.
+                        </p>
+
+                        <p class="has-error" *ngIf="form.controls.date_of_birth.errors?.minlength">
+                            The minimum length for this field is {{form.controls.date_of_birth.errors.minlength.requiredLength}} characters.
                         </p>
                     </ng-container>
                 </div>
@@ -155,7 +244,7 @@
                     <label>Counry</label>
                     <div class="pos-relative custom-select-arrow">
                         <select formControlName="country">
-                            <option>Select Value</option>
+                            <option value="undefined">Select Value</option>
                             <option value="Pakistan">Pakistan</option>
                         </select>
 
@@ -315,6 +404,50 @@
                     </ng-container>
                 </div>
             </div>
+
+            <div class="have-grid two-column">
+                <div class="single-form-field">
+                    <label>Father Occupation</label>
+                    <input type="text" placeholder="Father Occupation" formControlName="father_occupation" />
+
+                    <ng-container 
+                        *ngIf="
+                            form.controls.father_occupation.invalid && 
+                            form.controls.father_occupation.touched && 
+                            form.controls.father_occupation.dirty
+                        "
+                    >
+                        <p class="has-error" *ngIf="form.controls.father_occupation.errors?.required">
+                            This field is required.
+                        </p>
+
+                        <p class="has-error" *ngIf="form.controls.father_occupation.errors?.minlength">
+                            The minimum length for this field is {{form.controls.father_occupation.errors.minlength.requiredLength}} characters.
+                        </p>
+                    </ng-container>
+                </div>
+                
+                <div class="single-form-field">
+                    <label>Father Education</label>
+                    <input type="text" placeholder="Father Education" formControlName="father_education" />
+        
+                    <ng-container 
+                        *ngIf="
+                            form.controls.father_education.invalid && 
+                            form.controls.father_education.touched && 
+                            form.controls.father_education.dirty
+                        "
+                    >
+                        <p class="has-error" *ngIf="form.controls.father_education.errors?.required">
+                            This field is required.
+                        </p>
+
+                        <p class="has-error" *ngIf="form.controls.father_education.errors?.minlength">
+                            The minimum length for this field is {{form.controls.father_education.errors.minlength.requiredLength}} characters.
+                        </p>
+                    </ng-container>
+                </div>
+            </div>
     
             <div class="have-grid">
                 <div class="single-form-field">
@@ -344,6 +477,10 @@
             </div>
         </div>
 
-        <button [ngClass]="{'disbaled': !form.valid}" [disabled]="!form.valid">Add</button>
+        <button
+            class="primary-button" 
+            [ngClass]="{'disbaled': !form.valid}" 
+            [disabled]="!form.valid"
+        >Add</button>
     </form>
 </div>

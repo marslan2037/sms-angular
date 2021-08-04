@@ -134,7 +134,8 @@ h1.title {
 p.sub-title {
     margin: 0 0 30px;
 }
-button {
+button.primary-button {
+    padding: 0 20px;
     background-color: $btn-bg-color;
     border: 1px solid $btn-border-color;
     cursor: pointer;
@@ -153,6 +154,16 @@ button.disbaled {
     opacity: 0.7;
     border: none;
     cursor: not-allowed;
+}
+button.white-btn {
+    margin: 15px 0 0;
+    color: #000;
+    background: #fff;
+    border-color: #888;
+    &:hover {
+        background-color: #fff;
+        border-color: #888;
+    }
 }
 .another-action {
     margin: 35px 0 0;

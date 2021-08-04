@@ -19,6 +19,9 @@ import { FeePaidComponent } from 'src/app/components/auth/pages/fee/fee-paid/fee
 import { FeeUnpaidComponent } from 'src/app/components/auth/pages/fee/fee-unpaid/fee-unpaid.component';
 import { UpdateFeeComponent } from 'src/app/components/auth/pages/fee/update-fee/update-fee.component';
 import { FilterIconRenderer } from 'src/app/components/cell-rendering-components/filter-icon-rendering/filter-icon-rendering.component';
+import { StudentsFineComponent } from 'src/app/components/auth/pages/students/students-fine/students-fine.component';
+import { TeachersFineComponent } from 'src/app/components/auth/pages/teachers/teachers-fine/teachers-fine.component';
+import { PrintStudentComponent } from 'src/app/components/auth/pages/students/print-student/print-student.component';
 
 import { AccordionModule } from 'ngx-bootstrap/accordion';
 import { AgGridModule } from 'ag-grid-angular';
@@ -26,6 +29,7 @@ import { MomentModule } from 'ngx-moment';
 import { NgxSpinnerModule } from "ngx-spinner";
 import { ToastrModule } from 'ngx-toastr';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import { NgxPrintModule } from 'ngx-print';
 
 @NgModule({
     declarations: [
@@ -42,7 +46,10 @@ import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
         NewFeeComponent,
         FeePaidComponent,
         FeeUnpaidComponent,
-        UpdateFeeComponent
+        UpdateFeeComponent,
+        StudentsFineComponent,
+        TeachersFineComponent,
+        PrintStudentComponent
     ],
     imports: [
         HomeRouting,
@@ -57,6 +64,7 @@ import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
         AgGridModule.withComponents([
             FilterIconRenderer
         ]),
+        NgxPrintModule
     ]
 })
 export class HomeModule { }

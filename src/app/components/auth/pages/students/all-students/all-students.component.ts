@@ -39,18 +39,12 @@ export class AllStudentsComponent {
         {
             field: 'roll_number', 
             headerName: 'Roll No',
-            headerTooltip: 'Roll No',
-            width: 120, 
-            suppressMovable: true, 
-            suppressSizeToFit: true, 
+            headerTooltip: 'Roll No', 
         },
         {
             field: 'computer_number', 
             headerName: 'Computer No',
             headerTooltip: 'Computer No',
-            width: 120, 
-            suppressMovable: true, 
-            suppressSizeToFit: true, 
         },
         {
             field: 'first_name', 
@@ -61,6 +55,28 @@ export class AllStudentsComponent {
             field: 'last_name', 
             headerName: 'Last Name', 
             headerTooltip: 'Last Name',
+        },
+        {
+            field: 'date_of_birth', 
+            headerName: 'Date of Birth', 
+            headerTooltip: 'Date of Birth',
+            valueGetter: (data:any) => {
+                if(data.data.date_of_birth) {
+                    return moment(data.data.date_of_birth).format('MM/DD/YYYY');
+                }
+            },
+        },
+        {
+            field: 'nationality', 
+            headerName: 'Nationality', 
+            headerTooltip: 'Nationality',
+            hide: true
+        },
+        {
+            field: 'religion', 
+            headerName: 'Religion', 
+            headerTooltip: 'Religion',
+            hide: true
         },
         {
             field: 'class', 
@@ -106,7 +122,6 @@ export class AllStudentsComponent {
             field: 'house_number', 
             headerName: 'House No',
             headerTooltip: 'House No', 
-            width: 120,
         },
         {
             field: 'father_name', 
@@ -120,6 +135,18 @@ export class AllStudentsComponent {
             hide: true
         },
         {
+            field: 'father_education', 
+            headerName: 'Father Education', 
+            headerTooltip: 'Father Education',
+            hide: true
+        },
+        {
+            field: 'father_occupation', 
+            headerName: 'Father Occupation', 
+            headerTooltip: 'Father Occupation',
+            hide: true
+        },
+        {
             field: 'phone_number', 
             headerName: 'Phone Number', 
             headerTooltip: 'EVENT NAME',
@@ -129,9 +156,8 @@ export class AllStudentsComponent {
             headerName: 'Date', 
             headerTooltip: 'Date',
             valueGetter: (data:any) => {
-                console.log(data.data.date)
                 if(data.data.date) {
-                    return moment(data.data.date).tz('UTC').format('M/D/YYYY (ddd)');
+                    return moment(data.data.date).format('M/D/YYYY (ddd)');
                 }
             },
         },
