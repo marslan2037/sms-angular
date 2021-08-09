@@ -1,0 +1,98 @@
+<ngx-spinner [name]="spinner_name" [fullScreen]="true" type="ball-clip-rotate-multiple" size="medium"></ngx-spinner>
+<div class="have-grid-heading">
+    <h4 class="section-heading">Print Section</h4>
+    <div class="btn-list">
+        <button
+            ngxPrintItem 
+            class="primary-button"
+            (click)="printItem()"
+        >Print</button> 
+
+        <!-- <button
+            class="white-btn primary-button" 
+            routerLink="/home/students/add"
+        >Go Back</button> -->
+    </div>
+</div>
+
+<div class="print-section-container" id="printFeeDiv">
+    <div id="print-section" *ngIf="fee_info"> 
+        <div class="logo">
+            <span><img src="/assets/images/logo.png" alt="" /></span>
+            <span>
+                <h2>Pakistan Public School</h2>
+                <p>Sharaqpur Sharif - 0343-4091408</p>
+            </span>
+        </div>
+
+        <div class="have-grid two-columns" style="margin: 35px 0 0;">
+            <p class="content-row">
+                <span class="content-heading">Paid Date:</span>
+                <span class="content-detail">{{fee_info.date | date:'longDate'}}</span>
+            </p>
+        </div>
+
+        <h4 class="dark-bg">Student Information</h4>
+
+        <div class="have-grid two-columns">
+            <p class="content-row">
+                <span class="content-heading">Computer Generated No:</span>
+                <span class="content-detail" style="text-transform: lowercase;">{{fee_info.computer_number}}</span>
+            </p>
+
+            <p class="content-row">
+                <span class="content-heading">Roll No:</span>
+                <span class="content-detail">
+                    {{fee_info.roll_number}}
+                </span>
+            </p>
+        </div>
+
+        <div class="have-grid two-columns">
+            <p class="content-row">
+                <span class="content-heading">Full Name:</span>
+                <span class="content-detail">{{fee_info.name}}</span>
+            </p>
+
+            <p class="content-row">
+                <span class="content-heading">Class:</span>
+                <span class="content-detail">{{fee_info.class}}</span>
+            </p>
+        </div>
+
+        <h4 class="dark-bg">Fee Information</h4>
+
+        <div class="have-grid two-columns">
+            <p class="content-row">
+                <span class="content-heading">Fee Month:</span>
+                <span class="content-detail">
+                    {{fee_info.month | date : 'MMMM/YYYY'}}
+                </span>
+            </p>
+        </div>
+
+        <div class="have-grid two-columns">
+            <p class="content-row">
+                <span class="content-heading">Arrears:</span>
+                <span class="content-detail">{{fee_info.arrears}}</span>
+            </p>
+
+            <p class="content-row">
+                <span class="content-heading">Remaining Amount:</span>
+                <span class="content-detail">{{fee_info.remaining_amount}}</span>
+            </p>
+        </div>
+
+        <div class="have-grid two-columns">
+            <p class="content-row">
+                <span class="content-heading">Total Fee:</span>
+                <span class="content-detail">{{fee_info.amount}}</span>
+            </p>
+
+            <p class="content-row">
+                <span class="content-heading">Signature:</span>
+                <span class="content-detail" style="width: 130px; display: inline-block;"></span>
+            </p>
+        </div>
+    </div>
+</div>

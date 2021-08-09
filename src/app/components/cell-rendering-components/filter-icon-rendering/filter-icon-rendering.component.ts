@@ -22,6 +22,10 @@ export class FilterIconRenderer implements ICellRendererAngularComp, OnDestroy {
         this.params.context.grid.editSingleRecord(this.params.data._id);
     }
 
+    printRecord() {
+        this.params.context.grid.printSingleRecord(this.params.data._id);
+    }
+
     ngOnDestroy() {
     }
 

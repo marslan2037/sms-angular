@@ -9,6 +9,10 @@ body {
     background-color: $body-bg-color;
 }
 
+a {
+    color: inherit !important;
+}
+
 .pos-relative {
     position: relative;
 }
@@ -32,6 +36,19 @@ ul {
                 text-decoration: none;
             }
         }
+    }
+}
+
+.logo {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-gap: 15px;
+    align-items: center;
+    img {
+        width: 50px;
+    }
+    h2 {
+        font-size: 22px;
     }
 }
 

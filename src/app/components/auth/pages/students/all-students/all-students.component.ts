@@ -165,7 +165,7 @@ export class AllStudentsComponent {
             field: 'action', 
             headerName: 'Action',
             headerTooltip: 'Action',
-            width: 80,
+            width: 120,
             suppressMovable: true,
             suppressSizeToFit: true,
             filter: false,
@@ -249,5 +249,9 @@ export class AllStudentsComponent {
 
     editSingleRecord(id:any) {
         this.router.navigate(['/home/students/'+id]);
+    }
+
+    printSingleRecord(id:any) {
+        this.router.navigate(['/home/students/'+id+'/print']);
     }
 }

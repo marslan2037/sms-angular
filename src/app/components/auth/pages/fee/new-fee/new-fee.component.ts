@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 import { NgxSpinnerService } from "ngx-spinner";
 import { ToastrService } from 'ngx-toastr';
@@ -18,6 +19,7 @@ export class NewFeeComponent implements OnInit {
 	student_info:any;
 
     constructor(
+        private router: Router,
 		private fb: FormBuilder,
 		private api_service: ApiService,
         private toastr: ToastrService,
@@ -42,7 +44,9 @@ export class NewFeeComponent implements OnInit {
             'name': [{value: '', disabled: false}, ],
             'father_name': [{value: '', disabled: false}, ],
             'class': [{value: undefined, disabled: false}, [Validators.required, Validators.minLength(1)]],
-            'amount': ['', ],
+            'amount': [1500, ],
+            'arrears': [0, ],
+            'remaining_amount': [0, ],
             'month': ['', ],
         })
     }
@@ -82,7 +86,8 @@ export class NewFeeComponent implements OnInit {
                     class: form_raw_value.class,
                     month: this.form.value.month,
                     amount: form_value.amount,
-                    remaining_amount: 0,
+                    remaining_amount: form_value.remaining_amount,
+                    arrears: form_value.arrears,
                     status: 'paid'
                 }
 
@@ -90,10 +95,16 @@ export class NewFeeComponent implements OnInit {
                     console.log(response);
                     this.spinner.hide(this.spinner_name);
                     this.toastr.success('Fee is paid');
+
+                    this.router.navigate(['/home/fee/'+response._id+'/print']);
                 }, error => {
                     console.log(error);
                     this.spinner.hide(this.spinner_name);
-                    this.toastr.error(error.error);
+                    if(error.error.message) {
+                        this.toastr.error(error.error.message);
+                    } else {
+                        this.toastr.error(error.error);
+                    }
                 })
             } else {
                 this.api_service.fetchStudentForFee(this.form.value).subscribe((response:any) => {
@@ -106,7 +117,9 @@ export class NewFeeComponent implements OnInit {
                     this.form.patchValue({
                         name: response.name,
                         father_name: response.father_name,
-                        amount: response.amount
+                        amount: response.amount,
+                        remaining_amount: response.remaining_amount,
+                        arrears: response.arrears
                     })
                 }, error => {
                     console.log(error);

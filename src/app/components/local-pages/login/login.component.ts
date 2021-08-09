@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
+import { NgxSpinnerService } from "ngx-spinner";
+
+import { ApiService } from 'src/app/services/api-service';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -9,9 +13,15 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
+    spinner_name:any = 'sp1';
     form:any; 
 
-    constructor(private fb: FormBuilder, private router: Router) { }
+    constructor(
+        private fb: FormBuilder, 
+        private router: Router,
+        private spinner: NgxSpinnerService,
+        private api_service: ApiService
+    ) { }
 
     ngOnInit() {
         this.createForm();
@@ -26,10 +36,19 @@ export class LoginComponent implements OnInit {
 
     submit() {
         if(this.form.valid) {
-            console.log('this form is valid');
+            this.spinner.show(this.spinner_name);
+            this.api_service.login(this.form.value).subscribe((response:any) => {
+                let data = JSON.parse(response);
+                sessionStorage.setItem('token', data.token);
+                sessionStorage.setItem('name', data.name);
+                sessionStorage.setItem('email', data.email);
 
-            sessionStorage.setItem('token', '123456');
-            this.router.navigateByUrl('/home');
+                this.router.navigateByUrl('/home');
+                this.spinner.hide(this.spinner_name);
+            }, error => {
+                this.spinner.hide(this.spinner_name);
+                console.log(error);
+            })
         } else {
             console.log('this form is not valid')
         }

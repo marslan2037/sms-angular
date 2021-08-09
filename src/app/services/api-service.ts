@@ -15,6 +15,16 @@ export class ApiService {
         private http: HttpClient
     ) {}
 
+    login(data:any) {
+        const options = {responseType: 'text' as 'json'};
+        let url = this.api_url + '/user/login/';
+        
+        return this.http.post(url, data, options).pipe(
+            catchError(error => {
+                return observableThrowError(error)
+            }));
+    }
+
     isAuthenticated() {
         let token = sessionStorage.getItem('token') !== null;
 
@@ -27,7 +37,10 @@ export class ApiService {
     getAllStudents() {
         let url = this.api_url + '/user/students/';
 
-        return this.http.get(url).pipe(
+        let token = sessionStorage.getItem('token');
+        let headers = new HttpHeaders().set('auth-token', token);
+
+        return this.http.get(url, {headers: headers}).pipe(
             catchError(error => {
                 return observableThrowError(error)
             }));
@@ -35,8 +48,11 @@ export class ApiService {
 
     getSingleStudent(id:any) {
         let url = this.api_url + '/user/students/'+id;
+        
+        let token = sessionStorage.getItem('token');
+        let headers = new HttpHeaders().set('auth-token', token);
 
-        return this.http.get(url).pipe(
+        return this.http.get(url, {headers: headers}).pipe(
             catchError(error => {
                 return observableThrowError(error)
             }));
@@ -64,8 +80,11 @@ export class ApiService {
 
     addNewStudent(data:any) {
         let url = this.api_url + '/user/students/new';
+        
+        let token = sessionStorage.getItem('token');
+        let headers = new HttpHeaders().set('auth-token', token);
 
-        return this.http.post(url, data).pipe(
+        return this.http.post(url, data, {headers: headers}).pipe(
             catchError(error => {
                 return observableThrowError(error)
             }));
@@ -80,8 +99,11 @@ export class ApiService {
     /************************************/
     getAllTeachers() {
         let url = this.api_url + '/user/teachers/';
+        
+        let token = sessionStorage.getItem('token');
+        let headers = new HttpHeaders().set('auth-token', token);
 
-        return this.http.get(url).pipe(
+        return this.http.get(url, {headers: headers}).pipe(
             catchError(error => {
                 return observableThrowError(error)
             }));
@@ -89,8 +111,11 @@ export class ApiService {
 
     getSingleTeacher(id:any) {
         let url = this.api_url + '/user/teachers/'+id;
+        
+        let token = sessionStorage.getItem('token');
+        let headers = new HttpHeaders().set('auth-token', token);
 
-        return this.http.get(url).pipe(
+        return this.http.get(url, {headers: headers}).pipe(
             catchError(error => {
                 return observableThrowError(error)
             }));
@@ -118,8 +143,11 @@ export class ApiService {
 
     addNewTeacher(data:any) {
         let url = this.api_url + '/user/teachers/new';
+        
+        let token = sessionStorage.getItem('token');
+        let headers = new HttpHeaders().set('auth-token', token);
 
-        return this.http.post(url, data).pipe(
+        return this.http.post(url, data, {headers: headers}).pipe(
             catchError(error => {
                 return observableThrowError(error)
             }));
@@ -134,8 +162,11 @@ export class ApiService {
     /************************************/
     fetchStudentForFee(data:any) {
         let url = this.api_url + '/fee/fetch-student';
+        
+        let token = sessionStorage.getItem('token');
+        let headers = new HttpHeaders().set('auth-token', token);
 
-        return this.http.post(url, data).pipe(
+        return this.http.post(url, data, {headers: headers}).pipe(
             catchError(error => {
                 return observableThrowError(error)
             }));
@@ -143,8 +174,11 @@ export class ApiService {
 
     addNewFee(data:any) {
         let url = this.api_url + '/fee/new';
+        
+        let token = sessionStorage.getItem('token');
+        let headers = new HttpHeaders().set('auth-token', token);
 
-        return this.http.post(url, data).pipe(
+        return this.http.post(url, data, {headers: headers}).pipe(
             catchError(error => {
                 return observableThrowError(error)
             }));
@@ -152,8 +186,11 @@ export class ApiService {
 
     getAllPaidFee() {
         let url = this.api_url + '/fee/paid';
+        
+        let token = sessionStorage.getItem('token');
+        let headers = new HttpHeaders().set('auth-token', token);
 
-        return this.http.get(url).pipe(
+        return this.http.get(url, {headers: headers}).pipe(
             catchError(error => {
                 return observableThrowError(error)
             }));
@@ -161,8 +198,11 @@ export class ApiService {
 
     getSinglePaidFee(id:any) {
         let url = this.api_url + '/fee/paid/'+id;
+        
+        let token = sessionStorage.getItem('token');
+        let headers = new HttpHeaders().set('auth-token', token);
 
-        return this.http.get(url).pipe(
+        return this.http.get(url, {headers: headers}).pipe(
             catchError(error => {
                 return observableThrowError(error)
             }));
@@ -180,8 +220,11 @@ export class ApiService {
 
     getAllUnPaidFee() {
         let url = this.api_url + '/fee/unpaid';
+        
+        let token = sessionStorage.getItem('token');
+        let headers = new HttpHeaders().set('auth-token', token);
 
-        return this.http.get(url).pipe(
+        return this.http.get(url, {headers: headers}).pipe(
             catchError(error => {
                 return observableThrowError(error)
             }));
@@ -191,7 +234,10 @@ export class ApiService {
         const options = {responseType: 'text' as 'json'};
         let url = this.api_url + '/fee/paid/'+id;
 
-        return this.http.delete(url, options).pipe(
+        let token = sessionStorage.getItem('token');
+        let headers = new HttpHeaders().set('auth-token', token);
+
+        return this.http.delete(url, {headers: headers, responseType: 'text' as 'json'}).pipe(
             catchError(error => {
                 return observableThrowError(error)
             }));

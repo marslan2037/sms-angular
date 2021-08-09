@@ -9,12 +9,15 @@ import { ApiService } from 'src/app/services/api-service';
 })
 export class HeaderComponent implements OnInit {
 
+    name:any;
+
     constructor(
         private api_service: ApiService,
         private router: Router
     ) { }
 
-    ngOnInit(): void {
+    ngOnInit() {
+        this.name = sessionStorage.getItem('name');
     }
 
     logout() {

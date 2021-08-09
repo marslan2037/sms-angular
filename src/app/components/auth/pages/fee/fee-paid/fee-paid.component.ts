@@ -97,7 +97,7 @@ export class FeePaidComponent implements OnInit {
             field: 'action', 
             headerName: 'Action',
             headerTooltip: 'Action',
-            width: 80,
+            width: 120,
             suppressMovable: true,
             suppressSizeToFit: true,
             filter: false,
@@ -181,5 +181,9 @@ export class FeePaidComponent implements OnInit {
 
     editSingleRecord(id:any) {
         this.router.navigate(['/home/fee/'+id]);
+    }
+
+    printSingleRecord(id:any) {
+        this.router.navigate(['/home/fee/'+id+'/print']);
     }
 }

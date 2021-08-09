@@ -22,6 +22,7 @@ import { FilterIconRenderer } from 'src/app/components/cell-rendering-components
 import { StudentsFineComponent } from 'src/app/components/auth/pages/students/students-fine/students-fine.component';
 import { TeachersFineComponent } from 'src/app/components/auth/pages/teachers/teachers-fine/teachers-fine.component';
 import { PrintStudentComponent } from 'src/app/components/auth/pages/students/print-student/print-student.component';
+import { PrintFeeComponent } from 'src/app/components/auth/pages/fee/print-fee/print-fee.component';
 
 import { AccordionModule } from 'ngx-bootstrap/accordion';
 import { AgGridModule } from 'ag-grid-angular';
@@ -29,7 +30,7 @@ import { MomentModule } from 'ngx-moment';
 import { NgxSpinnerModule } from "ngx-spinner";
 import { ToastrModule } from 'ngx-toastr';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
-import { NgxPrintModule } from 'ngx-print';
+import { NgxPrinterModule, NgxPrinterService } from 'ngx-printer';
 
 @NgModule({
     declarations: [
@@ -49,7 +50,8 @@ import { NgxPrintModule } from 'ngx-print';
         UpdateFeeComponent,
         StudentsFineComponent,
         TeachersFineComponent,
-        PrintStudentComponent
+        PrintStudentComponent,
+        PrintFeeComponent
     ],
     imports: [
         HomeRouting,
@@ -64,7 +66,10 @@ import { NgxPrintModule } from 'ngx-print';
         AgGridModule.withComponents([
             FilterIconRenderer
         ]),
-        NgxPrintModule
+        NgxPrinterModule.forRoot({printOpenWindow: false}),
+    ],
+    providers: [
+        NgxPrinterService
     ]
 })
 export class HomeModule { }

@@ -2,9 +2,6 @@
     display: grid;
     grid-template-columns: 1fr 2fr;
     align-items: center;
-    h2 {
-        font-size: 22px;
-    }
     ul {
         justify-self: end;
         margin: 0;
@@ -29,6 +26,10 @@
                     height: 30px;
                     border-radius: 50%;
                     border: 1px solid #ccc;
+                    overflow: hidden;
+                    img {
+                        width: 100%;
+                    }
                 }
             }
             a.have-profile-icon {

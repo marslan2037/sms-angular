@@ -1,47 +1,45 @@
-<h4 class="section-heading">Print Section</h4>
-
-<div class="print-section-container">
+<ngx-spinner [name]="spinner_name" [fullScreen]="true" type="ball-clip-rotate-multiple" size="medium"></ngx-spinner>
+<div class="have-grid-heading">
+    <h4 class="section-heading">Print Section</h4>
     <div class="btn-list">
         <button
-            [printStyle]="{
-                h2: {
-                    'color': '#fff', 
-                    'background': 'black',
-                    'padding': '10px'
-                }
-            }"
-            class="primary-button" 
-            printSectionId="print-section" 
-            ngxPrint
+            ngxPrintItem 
+            class="primary-button"
+            (click)="printItem()"
         >Print</button> 
 
-        <button
+        <!-- <button
             class="white-btn primary-button" 
             routerLink="/home/students/add"
-        >Go Back</button>
+        >Go Back</button> -->
     </div>
+</div>
 
+<div class="print-section-container" id="printStudentDiv">
     <div id="print-section" *ngIf="student_info"> 
-        <div class="section-block">
-            <h2 class="dark-bg">Pakistan Public & Cadet School</h2>
-            <p><b>Branch: </b> Sharaqpur Shareef Branch</p>
+        <div class="logo">
+            <span><img src="/assets/images/logo.png" alt="" /></span>
+            <span>
+                <h2>Pakistan Public School</h2>
+                <p>Sharaqpur Sharif - 0343-4091408</p>
+            </span>
         </div>
 
-        <div class="have-grid two-columns">
+        <div class="have-grid two-columns" style="margin: 35px 0 0;">
             <p class="content-row">
-                <span class="content-heading">Date:</span>
+                <span class="content-heading">Registration Date:</span>
                 <span class="content-detail">{{student_info.date | date:'longDate'}}</span>
-            </p>
-
-            <p class="content-row">
-                <span class="content-heading">Computer Generated No:</span>
-                <span class="content-detail">{{student_info.computer_number}}</span>
             </p>
         </div>
 
         <h4 class="dark-bg">Student Information</h4>
 
-        <div class="have-grid">
+        <div class="have-grid two-columns">
+            <p class="content-row">
+                <span class="content-heading">Computer Generated No:</span>
+                <span class="content-detail">{{student_info.computer_number}}</span>
+            </p>
+
             <p class="content-row">
                 <span class="content-heading">Roll No:</span>
                 <span class="content-detail">
@@ -55,7 +53,14 @@
                 <span class="content-heading">Full Name:</span>
                 <span class="content-detail">{{student_info.first_name}} {{student_info.last_name}}</span>
             </p>
-    
+
+            <p class="content-row">
+                <span class="content-heading">Class:</span>
+                <span class="content-detail">{{student_info.class}}</span>
+            </p>
+        </div>
+
+        <div class="have-grid two-columns">
             <p class="content-row">
                 <span class="content-heading">Son / Daughter of:</span>
                 <span class="content-detail">{{student_info.father_name}}</span>
@@ -80,7 +85,7 @@
     
             <p class="content-row">
                 <span class="content-heading">Date of Birth:</span>
-                <span class="content-detail">{{student_info.date_of_birth}}</span>
+                <span class="content-detail">{{student_info.date_of_birth | date: 'longDate'}}</span>
             </p>
         </div>
 

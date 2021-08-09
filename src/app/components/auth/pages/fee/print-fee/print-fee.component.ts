@@ -8,14 +8,14 @@ import { ToastrService } from 'ngx-toastr';
 import { PrintItem, NgxPrinterService } from 'ngx-printer';
 
 @Component({
-    selector: 'app-print-student',
-    templateUrl: './print-student.component.html',
-    styleUrls: ['./print-student.component.scss']
+    selector: 'app-print-fee',
+    templateUrl: './print-fee.component.html',
+    styleUrls: ['./print-fee.component.scss']
 })
-export class PrintStudentComponent {
+export class PrintFeeComponent {
 
     spinner_name:any = 'sp1';
-    student_info:any;
+    fee_info:any;
 
     constructor(
         private route: ActivatedRoute,
@@ -24,31 +24,32 @@ export class PrintStudentComponent {
         private spinner: NgxSpinnerService,
         private printerService: NgxPrinterService
     ) { }
-    
+
     ngOnInit() {
         this.getIdFromUrl();
     }
 
     printItem() {
-        this.printerService.printDiv('printStudentDiv');
+        this.printerService.printDiv('printFeeDiv');
     }
 
-    single_student_id:any;
+    single_fee_id:any;
     getIdFromUrl() {
         let id = this.route.snapshot.paramMap.get('id');
-        this.getSingleStudent(id);
+        this.getSinglePaidFee(id);
     }
 
-    getSingleStudent(id:any) {
+    getSinglePaidFee(id:any) {
         this.spinner.show(this.spinner_name);
-        this.api_service.getSingleStudent(id).subscribe((response:any) => {
+        this.api_service.getSinglePaidFee(id).subscribe((response:any) => {
             console.log(response)
             this.spinner.hide(this.spinner_name);
 
-            this.student_info = response;
+            this.fee_info = response;
         }, error => {
             this.spinner.hide(this.spinner_name);
             console.log(error)
         })        
     }
+
 }

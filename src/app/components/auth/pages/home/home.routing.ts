@@ -13,6 +13,7 @@ import { FeePaidComponent } from 'src/app/components/auth/pages/fee/fee-paid/fee
 import { FeeUnpaidComponent } from 'src/app/components/auth/pages/fee/fee-unpaid/fee-unpaid.component';
 import { UpdateFeeComponent } from 'src/app/components/auth/pages/fee/update-fee/update-fee.component';
 import { PrintStudentComponent } from '../students/print-student/print-student.component';
+import { PrintFeeComponent } from '../fee/print-fee/print-fee.component';
 
 const routes: Routes = [
 
@@ -68,6 +69,10 @@ const routes: Routes = [
             {
                 path: 'fee/:id',
                 component: UpdateFeeComponent
+            },
+            {
+                path: 'fee/:id/print',
+                component: PrintFeeComponent
             },
         ]
     },
