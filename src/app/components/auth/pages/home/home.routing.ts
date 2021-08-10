@@ -14,6 +14,7 @@ import { FeeUnpaidComponent } from 'src/app/components/auth/pages/fee/fee-unpaid
 import { UpdateFeeComponent } from 'src/app/components/auth/pages/fee/update-fee/update-fee.component';
 import { PrintStudentComponent } from '../students/print-student/print-student.component';
 import { PrintFeeComponent } from '../fee/print-fee/print-fee.component';
+import { DashboardComponent } from '../dashboard/dashboard.component';
 
 const routes: Routes = [
 
@@ -22,6 +23,10 @@ const routes: Routes = [
         component: HomeComponent,
 
         children: [
+            {
+                path: 'dashboard',
+                component: DashboardComponent
+            },
             {
                 path: 'teachers',
                 component: AllTeachersComponent

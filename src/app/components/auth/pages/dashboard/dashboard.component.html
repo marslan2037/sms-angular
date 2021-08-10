@@ -1,0 +1,17 @@
+<ngx-spinner [name]="spinner_name" [fullScreen]="true" type="ball-clip-rotate-multiple" size="medium"></ngx-spinner>
+<div class="dashboard-container">
+    <div class="cards-list">
+        <div class="single-card">
+            <div class="card-header">
+                <div class="card-icon">
+                    <i class="fa fa-users" aria-hidden="true"></i>
+                </div>
+                <p class="card-category">Students</p>
+                <h3 class="card-title">{{total_students}}</h3>
+            </div>
+            <div class="card-footer">
+                <a routerLink="/home/students/add">Add new student</a>
+            </div>
+        </div>
+    </div>
+</div>

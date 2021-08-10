@@ -11,6 +11,7 @@
 /node_modules
 
 /electron-win32-x64
+/markupsoft-win32-x64
 
 # profiling files
 chrome-profiler-events*.json

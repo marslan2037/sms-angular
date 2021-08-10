@@ -3,6 +3,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 import { NgxSpinnerService } from "ngx-spinner";
+import { ToastrService } from 'ngx-toastr';
 
 import { ApiService } from 'src/app/services/api-service';
 
@@ -19,8 +20,9 @@ export class LoginComponent implements OnInit {
     constructor(
         private fb: FormBuilder, 
         private router: Router,
-        private spinner: NgxSpinnerService,
-        private api_service: ApiService
+        private api_service: ApiService,
+        private toastr: ToastrService,
+        private spinner: NgxSpinnerService
     ) { }
 
     ngOnInit() {
@@ -45,9 +47,11 @@ export class LoginComponent implements OnInit {
 
                 this.router.navigateByUrl('/home');
                 this.spinner.hide(this.spinner_name);
+                this.toastr.success('You are logged in');
             }, error => {
                 this.spinner.hide(this.spinner_name);
                 console.log(error);
+                this.toastr.error(error.error);
             })
         } else {
             console.log('this form is not valid')
