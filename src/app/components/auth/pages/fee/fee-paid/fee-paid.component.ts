@@ -75,12 +75,12 @@ export class FeePaidComponent implements OnInit {
             field: 'month', 
             headerName: 'Fee Month', 
             headerTooltip: 'Fee Month',
-            valueGetter: (data:any) => {
-                console.log(data.data)
-                if(data.data.month) {
-                    return moment(data.data.month).format('M/YYYY');
-                }
-            },
+            // valueGetter: (data:any) => {
+            //     console.log(data.data)
+            //     if(data.data.month) {
+            //         return moment(data.data.month).format('M/YYYY');
+            //     }
+            // },
         },
         {
             field: 'date', 

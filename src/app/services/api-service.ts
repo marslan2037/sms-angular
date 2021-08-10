@@ -8,8 +8,8 @@ import { HttpHeaders, HttpClient } from '@angular/common/http';
 })
 export class ApiService {
 
-    // api_url:any = 'https://pakistan-public-school.herokuapp.com/api';
-    api_url:any = 'http://localhost:3000/api';
+    api_url:any = 'https://pakistan-public-school.herokuapp.com/api';
+    // api_url:any = 'http://localhost:3000/api';
 
     constructor(
         private http: HttpClient
@@ -59,20 +59,24 @@ export class ApiService {
     }
 
     updateSingleStudent(id:any, data:any) {
-        const options = {responseType: 'text' as 'json'};
         let url = this.api_url + '/user/students/'+id;
 
-        return this.http.patch(url, data, options).pipe(
+        let token = sessionStorage.getItem('token');
+        let headers = new HttpHeaders().set('auth-token', token);
+
+        return this.http.patch(url, data, {headers: headers, responseType: 'text' as 'json'}).pipe(
             catchError(error => {
                 return observableThrowError(error)
             }));
     }
 
     deleteStudent(id:any) {
-        const options = {responseType: 'text' as 'json'};
         let url = this.api_url + '/user/students/'+id;
 
-        return this.http.delete(url, options).pipe(
+        let token = sessionStorage.getItem('token');
+        let headers = new HttpHeaders().set('auth-token', token);
+
+        return this.http.delete(url, {headers: headers, responseType: 'text' as 'json'}).pipe(
             catchError(error => {
                 return observableThrowError(error)
             }));
@@ -122,20 +126,24 @@ export class ApiService {
     }
 
     updateSingleTeacher(id:any, data:any) {
-        const options = {responseType: 'text' as 'json'};
         let url = this.api_url + '/user/teachers/'+id;
 
-        return this.http.patch(url, data, options).pipe(
+        let token = sessionStorage.getItem('token');
+        let headers = new HttpHeaders().set('auth-token', token);
+
+        return this.http.patch(url, data, {headers: headers, responseType: 'text' as 'json'}).pipe(
             catchError(error => {
                 return observableThrowError(error)
             }));
     }
 
     deleteTeacher(id:any) {
-        const options = {responseType: 'text' as 'json'};
         let url = this.api_url + '/user/teachers/'+id;
 
-        return this.http.delete(url, options).pipe(
+        let token = sessionStorage.getItem('token');
+        let headers = new HttpHeaders().set('auth-token', token);
+
+        return this.http.delete(url, {headers: headers, responseType: 'text' as 'json'}).pipe(
             catchError(error => {
                 return observableThrowError(error)
             }));
@@ -210,9 +218,11 @@ export class ApiService {
 
     updateSinglePaidFee(id:any, data:any) {
         let url = this.api_url + '/fee/paid/'+id;
-        const options = {responseType: 'text' as 'json'};
 
-        return this.http.patch(url, data, options).pipe(
+        let token = sessionStorage.getItem('token');
+        let headers = new HttpHeaders().set('auth-token', token);
+
+        return this.http.patch(url, data, {headers: headers, responseType: 'text' as 'json'}).pipe(
             catchError(error => {
                 return observableThrowError(error)
             }));
@@ -231,7 +241,6 @@ export class ApiService {
     }
     
     deleteFee(id:any) {
-        const options = {responseType: 'text' as 'json'};
         let url = this.api_url + '/fee/paid/'+id;
 
         let token = sessionStorage.getItem('token');

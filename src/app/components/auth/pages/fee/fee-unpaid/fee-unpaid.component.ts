@@ -45,6 +45,11 @@ export class FeeUnpaidComponent implements OnInit {
             suppressSizeToFit: true, 
         },
         {
+            field: 'computer_number', 
+            headerName: 'Computer Number',
+            headerTooltip: 'Computer Number', 
+        },
+        {
             field: 'first_name', 
             headerName: 'First Name',
             headerTooltip: 'First Name', 
@@ -61,82 +66,26 @@ export class FeeUnpaidComponent implements OnInit {
             headerTooltip: 'Class',
         },
         {
-            field: 'b_form', 
-            headerName: 'B Form', 
-            headerTooltip: 'B Form',
-            hide: true
-        },
-        {
-            field: 'previous_school', 
-            headerName: 'Previous School',
-            headerTooltip: 'Previous School', 
-            hide: true
-        },
-        {
-            field: 'country', 
-            headerName: 'Country', 
-            headerTooltip: 'Country',
-        },
-        {
-            field: 'city', 
-            headerName: 'City', 
-            headerTooltip: 'City',
-        },
-        {
-            field: 'mohallah', 
-            headerName: 'Mohallah',
-            headerTooltip: 'Mohallah', 
-        },
-        {
-            field: 'street', 
-            headerName: 'Street', 
-            headerTooltip: 'Street',
-            width: 120,
-        },
-        {
-            field: 'house_number', 
-            headerName: 'House No',
-            headerTooltip: 'House No', 
-            width: 120,
-        },
-        {
             field: 'father_name', 
             headerName: 'Father Name',
             headerTooltip: 'Father Name', 
-        },
-        {
-            field: 'father_cnic', 
-            headerName: 'Father CNIC', 
-            headerTooltip: 'Father CNIC',
-            hide: true
         },
         {
             field: 'phone_number', 
             headerName: 'Phone Number', 
             headerTooltip: 'EVENT NAME',
         },
-        {
-            field: 'date', 
-            headerName: 'Date', 
-            headerTooltip: 'Date',
-            valueGetter: (data:any) => {
-                console.log(data.data.date)
-                if(data.data.date) {
-                    return moment(data.data.date).tz('UTC').format('M/D/YYYY (ddd)');
-                }
-            },
-        },
-        {
-            field: 'action', 
-            headerName: 'Action',
-            headerTooltip: 'Action',
-            width: 80,
-            suppressMovable: true,
-            suppressSizeToFit: true,
-            filter: false,
-            floatingFilter: false,
-            cellRenderer: 'filterIconRenderer'
-        }
+        // {
+        //     field: 'action', 
+        //     headerName: 'Action',
+        //     headerTooltip: 'Action',
+        //     width: 80,
+        //     suppressMovable: true,
+        //     suppressSizeToFit: true,
+        //     filter: false,
+        //     floatingFilter: false,
+        //     cellRenderer: 'filterIconRenderer'
+        // }
     ];
 
     constructor(

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import * as moment from 'moment';
 
 import { NgxSpinnerService } from "ngx-spinner";
 import { ToastrService } from 'ngx-toastr';
@@ -57,7 +58,7 @@ export class UpdateFeeComponent implements OnInit {
                 class: response.class,
                 father_name: response.father_name,
                 amount: response.amount,
-                month: new Date(response.month),
+                month: new Date(response.month_full),
             });
 
             this.fetchStudent(response.class, response.roll_number);
@@ -75,6 +76,7 @@ export class UpdateFeeComponent implements OnInit {
             'class': [{value: undefined, disabled: false}, [Validators.required, Validators.minLength(1)]],
             'amount': ['', ],
             'month': ['', ],
+            'month_full': ['', ],
         })
     }
 
@@ -106,7 +108,8 @@ export class UpdateFeeComponent implements OnInit {
                 computer_number: (computer_number) ? computer_number : 'none',
                 name: form_raw_value.name,
                 class: form_raw_value.class,
-                month: form_value.month,
+                month: moment(this.form.value.month).format('MM/YYYY'),
+                month_full: this.form.value.month,
                 amount: form_value.amount,
                 remaining_amount: 0,
                 status: 'paid'

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import * as moment from 'moment';
 
 import { NgxSpinnerService } from "ngx-spinner";
 import { ToastrService } from 'ngx-toastr';
@@ -48,6 +49,7 @@ export class NewFeeComponent implements OnInit {
             'arrears': [0, ],
             'remaining_amount': [0, ],
             'month': ['', ],
+            'month_full': ['', ],
         })
     }
 
@@ -84,7 +86,8 @@ export class NewFeeComponent implements OnInit {
                     computer_number: (computer_number) ? computer_number : 'none',
                     name: form_raw_value.name,
                     class: form_raw_value.class,
-                    month: this.form.value.month,
+                    month: moment(this.form.value.month).format('MM/YYYY'),
+                    month_full: this.form.value.month,
                     amount: form_value.amount,
                     remaining_amount: form_value.remaining_amount,
                     arrears: form_value.arrears,
