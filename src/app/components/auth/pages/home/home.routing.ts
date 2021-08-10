@@ -21,6 +21,8 @@ const routes: Routes = [
     {
         path: '',
         component: HomeComponent,
+        // redirectTo: 'dashboard',
+        // pathMatch: 'full',
 
         children: [
             {
@@ -79,6 +81,11 @@ const routes: Routes = [
                 path: 'fee/:id/print',
                 component: PrintFeeComponent
             },
+            // {
+            //     path: '**',
+            //     redirectTo: '/home/dashboard',
+            //     pathMatch: 'full'
+            // }
         ]
     },
 ];

@@ -11,7 +11,7 @@ const routes: Routes = [
     { path: 'login', component: LoginComponent },
     { path: 'add-user', component: SignupComponent },
     { path: 'home', loadChildren: () => import('./components/auth/pages/home/home.module').then(m => m.HomeModule), canActivate: [AuthService] },
-    { path: '**', component: LoginComponent },
+    // { path: '**', component: LoginComponent },
 ];
 
 @NgModule({
