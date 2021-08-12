@@ -11,51 +11,55 @@
 
             <div class="have-grid two-column">
                 <div class="single-form-field">
-                    <label>First Name</label>
-                    <input type="text" placeholder="First name" formControlName="first_name" />
+                    <label>Name</label>
+                    <input type="text" placeholder="Name" formControlName="name" />
                     
                     <ng-container 
                         *ngIf="
-                            form.controls.first_name.invalid && 
-                            form.controls.first_name.touched && 
-                            form.controls.first_name.dirty
+                            form.controls.name.invalid && 
+                            form.controls.name.touched && 
+                            form.controls.name.dirty
                         "
                     >
-                        <p class="has-error" *ngIf="form.controls.first_name.errors?.required">
+                        <p class="has-error" *ngIf="form.controls.name.errors?.required">
                             This field is required.
                         </p>
 
-                        <p class="has-error" *ngIf="form.controls.first_name.errors?.minlength">
-                            The minimum length for this field is {{form.controls.first_name.errors.minlength.requiredLength}} characters.
+                        <p class="has-error" *ngIf="form.controls.name.errors?.minlength">
+                            The minimum length for this field is {{form.controls.name.errors.minlength.requiredLength}} characters.
                         </p>
 
-                        <p class="has-error" *ngIf="form.controls.first_name.errors?.maxlength">
-                            The maximum length for this field is {{form.controls.first_name.errors.maxlength.requiredLength}} characters.
+                        <p class="has-error" *ngIf="form.controls.name.errors?.maxlength">
+                            The maximum length for this field is {{form.controls.name.errors.maxlength.requiredLength}} characters.
                         </p>
                     </ng-container>
                 </div>
-        
+
                 <div class="single-form-field">
-                    <label>Last Name</label>
-                    <input type="text" placeholder="Last name" formControlName="last_name" />
-        
+                    <label>Gender</label>
+                    <div class="pos-relative custom-select-arrow">
+                        <select formControlName="gender">
+                            <option value="undefined">Select Value</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                        </select>
+
+                        <i class="fa fa-angle-down"></i>
+                    </div>
+
                     <ng-container 
                         *ngIf="
-                            form.controls.last_name.invalid && 
-                            form.controls.last_name.touched && 
-                            form.controls.last_name.dirty
+                            form.controls.gender.invalid && 
+                            form.controls.gender.touched && 
+                            form.controls.gender.dirty
                         "
                     >
-                        <p class="has-error" *ngIf="form.controls.last_name.errors?.required">
+                        <p class="has-error" *ngIf="form.controls.gender.errors?.required">
                             This field is required.
                         </p>
 
-                        <p class="has-error" *ngIf="form.controls.last_name.errors?.minlength">
-                            The minimum length for this field is {{form.controls.last_name.errors.minlength.requiredLength}} characters.
-                        </p>
-
-                        <p class="has-error" *ngIf="form.controls.last_name.errors?.maxlength">
-                            The maximum length for this field is {{form.controls.last_name.errors.maxlength.requiredLength}} characters.
+                        <p class="has-error" *ngIf="form.controls.gender.errors?.minlength">
+                            The minimum length for this field is {{form.controls.gender.errors.minlength.requiredLength}} characters.
                         </p>
                     </ng-container>
                 </div>
@@ -471,6 +475,37 @@
 
                         <p class="has-error" *ngIf="form.controls.phone_number.errors?.maxlength">
                             The maximum length for this field is {{form.controls.phone_number.errors.maxlength.requiredLength}} characters.
+                        </p>
+                    </ng-container>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <label class="section-heading">Fee Information</label>
+
+            <div class="have-grid two-column">
+                <div class="single-form-field">
+                    <label>Fee</label>
+                    <input type="text" placeholder="Enter decided fee" formControlName="fee" />
+
+                    <ng-container 
+                        *ngIf="
+                            form.controls.fee.invalid && 
+                            form.controls.fee.touched && 
+                            form.controls.fee.dirty
+                        "
+                    >
+                        <p class="has-error" *ngIf="form.controls.fee.errors?.required">
+                            This field is required.
+                        </p>
+
+                        <p class="has-error" *ngIf="form.controls.fee.errors?.minlength">
+                            The minimum length for this field is {{form.controls.fee.errors.minlength.requiredLength}} characters.
+                        </p>
+
+                        <p class="has-error" *ngIf="form.controls.fee.errors?.maxlength">
+                            The maximum length for this field is {{form.controls.fee.errors.maxlength.requiredLength}} characters.
                         </p>
                     </ng-container>
                 </div>

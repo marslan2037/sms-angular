@@ -32,8 +32,9 @@ export class NewStudentComponent {
     createForm() {
         this.form = this.fb.group({
             'roll_number': ['', [Validators.required, Validators.minLength(2)]],
-            'first_name': ['', [Validators.required, Validators.minLength(3), Validators.maxLength(30)]],
-			'last_name': ['', [Validators.required, Validators.minLength(3), Validators.maxLength(30)]],
+            'name': ['', [Validators.required, Validators.minLength(3), Validators.maxLength(30)]],
+            'gender': [{value: undefined, disabled: false}, [Validators.required, Validators.minLength(4), Validators.maxLength(6)]],
+            'fee': [0, [Validators.required, Validators.minLength(0)]],
 			'religion': [{value: undefined, disabled: false}, [Validators.required, Validators.minLength(3), Validators.maxLength(30)]],
 			'nationality': [{value: undefined, disabled: false}, [Validators.required, Validators.minLength(3), Validators.maxLength(30)]],
 			'date_of_birth': ['', [Validators.required, Validators.minLength(3), Validators.maxLength(30)]],

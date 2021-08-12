@@ -51,16 +51,21 @@
         <div class="have-grid two-columns">
             <p class="content-row">
                 <span class="content-heading">Full Name:</span>
-                <span class="content-detail">{{student_info.first_name}} {{student_info.last_name}}</span>
+                <span class="content-detail">{{student_info.name}}</span>
             </p>
 
             <p class="content-row">
-                <span class="content-heading">Class:</span>
-                <span class="content-detail">{{student_info.class}}</span>
+                <span class="content-heading">Gender:</span>
+                <span class="content-detail">{{student_info.gender}}</span>
             </p>
         </div>
 
         <div class="have-grid two-columns">
+            <p class="content-row">
+                <span class="content-heading">Class:</span>
+                <span class="content-detail">{{student_info.class}}</span>
+            </p>
+
             <p class="content-row">
                 <span class="content-heading">Son / Daughter of:</span>
                 <span class="content-detail">{{student_info.father_name}}</span>
@@ -131,6 +136,15 @@
             <p class="content-row">
                 <span class="content-heading">CNIC:</span>
                 <span class="content-detail">{{student_info.father_cnic}}</span>
+            </p>
+        </div>
+
+        <h4 class="dark-bg">Fee Information</h4>
+
+        <div class="have-grid two-columns">
+            <p class="content-row">
+                <span class="content-heading">Fee:</span>
+                <span class="content-detail">{{student_info.fee}}</span>
             </p>
         </div>
     </div>

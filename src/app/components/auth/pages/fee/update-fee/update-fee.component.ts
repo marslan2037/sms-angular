@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import * as moment from 'moment';
 
 import { NgxSpinnerService } from "ngx-spinner";
@@ -20,6 +20,7 @@ export class UpdateFeeComponent implements OnInit {
 	student_info:any;
 
     constructor(
+        private router: Router,
 		private fb: FormBuilder,
 		private api_service: ApiService,
         private toastr: ToastrService,
@@ -74,7 +75,9 @@ export class UpdateFeeComponent implements OnInit {
             'name': [{value: '', disabled: false}, ],
             'father_name': [{value: '', disabled: false}, ],
             'class': [{value: undefined, disabled: false}, [Validators.required, Validators.minLength(1)]],
-            'amount': ['', ],
+            'amount': [1500, ],
+            'arrears': [0, ],
+            'remaining_amount': [0, ],
             'month': ['', ],
             'month_full': ['', ],
         })
@@ -112,13 +115,16 @@ export class UpdateFeeComponent implements OnInit {
                 month_full: this.form.value.month,
                 amount: form_value.amount,
                 remaining_amount: 0,
+                arrears: form_value.arrears,
                 status: 'paid'
             }
             
             this.api_service.updateSinglePaidFee(this.single_fee_id, data).subscribe((response:any) => {
                 console.log(response);
+                let data = JSON.parse(response);
                 this.spinner.hide(this.spinner_name);
                 this.toastr.success('Fee record is updated');
+                this.router.navigate(['/home/fee/'+data._id+'/print']);
             }, error => {
                 console.log(error);
                 this.spinner.hide(this.spinner_name);

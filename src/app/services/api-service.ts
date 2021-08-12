@@ -8,8 +8,8 @@ import { HttpHeaders, HttpClient } from '@angular/common/http';
 })
 export class ApiService {
 
-    api_url:any = 'https://pakistan-public-school.herokuapp.com/api';
-    // api_url:any = 'http://localhost:3000/api';
+    // api_url:any = 'https://pakistan-public-school.herokuapp.com/api';
+    api_url:any = 'http://localhost:3000/api';
 
     constructor(
         private http: HttpClient

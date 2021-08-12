@@ -47,14 +47,14 @@ export class AllStudentsComponent {
             headerTooltip: 'Computer No',
         },
         {
-            field: 'first_name', 
-            headerName: 'First Name',
-            headerTooltip: 'First Name', 
+            field: 'name', 
+            headerName: 'Name',
+            headerTooltip: 'Name', 
         },
         {
-            field: 'last_name', 
-            headerName: 'Last Name', 
-            headerTooltip: 'Last Name',
+            field: 'gender', 
+            headerName: 'Gender',
+            headerTooltip: 'Gender', 
         },
         {
             field: 'date_of_birth', 
@@ -152,6 +152,11 @@ export class AllStudentsComponent {
             headerTooltip: 'EVENT NAME',
         },
         {
+            field: 'fee',
+            headerName: 'Fee',
+            headerTooltip: 'Fee'
+        },
+        {
             field: 'date', 
             headerName: 'Date', 
             headerTooltip: 'Date',
@@ -160,6 +165,7 @@ export class AllStudentsComponent {
                     return moment(data.data.date).format('M/D/YYYY (ddd)');
                 }
             },
+            hide: true
         },
         {
             field: 'action', 
