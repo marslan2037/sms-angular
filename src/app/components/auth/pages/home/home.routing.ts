@@ -14,6 +14,7 @@ import { FeeUnpaidComponent } from 'src/app/components/auth/pages/fee/fee-unpaid
 import { UpdateFeeComponent } from 'src/app/components/auth/pages/fee/update-fee/update-fee.component';
 import { PrintStudentComponent } from '../students/print-student/print-student.component';
 import { PrintFeeComponent } from '../fee/print-fee/print-fee.component';
+import { FeeRegisterComponent } from '../fee/fee-register/fee-register.component';
 
 const routes: Routes = [
 
@@ -73,6 +74,10 @@ const routes: Routes = [
             {
                 path: 'fee/:id/print',
                 component: PrintFeeComponent
+            },
+            {
+                path: 'fee/register/:year',
+                component: FeeRegisterComponent
             },
             // {
             //     path: '**',

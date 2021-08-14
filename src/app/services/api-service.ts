@@ -204,6 +204,18 @@ export class ApiService {
             }));
     }
 
+    getSingleStudentFeeRecord(computer_number:any) {
+        let url = this.api_url + '/fee/'+computer_number;
+        
+        let token = sessionStorage.getItem('token');
+        let headers = new HttpHeaders().set('auth-token', token);
+
+        return this.http.get(url, {headers: headers}).pipe(
+            catchError(error => {
+                return observableThrowError(error)
+            }));
+    }
+
     getSinglePaidFee(id:any) {
         let url = this.api_url + '/fee/paid/'+id;
         
