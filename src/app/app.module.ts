@@ -20,7 +20,7 @@ import { AuthService } from './services/auth-service';
     declarations: [
         AppComponent,
         LoginComponent,
-        SignupComponent
+        SignupComponent,
     ],
     imports: [
         BrowserModule,

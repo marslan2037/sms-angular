@@ -8,8 +8,8 @@ import { HttpHeaders, HttpClient } from '@angular/common/http';
 })
 export class ApiService {
 
-    // api_url:any = 'https://pakistan-public-school.herokuapp.com/api';
-    api_url:any = 'http://localhost:3000/api';
+    api_url:any = 'https://pakistan-public-school.herokuapp.com/api';
+    // api_url:any = 'http://localhost:3000/api';
 
     constructor(
         private http: HttpClient
@@ -30,6 +30,72 @@ export class ApiService {
 
         return (token) ? true : false;
     }
+
+    /************************************/
+    /**** CLASSES MODULE API's START ****/
+    /************************************/
+    getAllClasses() {
+        let url = this.api_url + '/class/';
+
+        let token = sessionStorage.getItem('token');
+        let headers = new HttpHeaders().set('auth-token', token);
+
+        return this.http.get(url, {headers: headers}).pipe(
+            catchError(error => {
+                return observableThrowError(error)
+            }));
+    }
+
+    getSingleClass(id:any) {
+        let url = this.api_url + '/class/'+id;
+        
+        let token = sessionStorage.getItem('token');
+        let headers = new HttpHeaders().set('auth-token', token);
+
+        return this.http.get(url, {headers: headers}).pipe(
+            catchError(error => {
+                return observableThrowError(error)
+            }));
+    }
+
+    updateSingleClass(id:any, data:any) {
+        let url = this.api_url + '/class/'+id;
+
+        let token = sessionStorage.getItem('token');
+        let headers = new HttpHeaders().set('auth-token', token);
+
+        return this.http.patch(url, data, {headers: headers, responseType: 'text' as 'json'}).pipe(
+            catchError(error => {
+                return observableThrowError(error)
+            }));
+    }
+
+    deleteClass(id:any) {
+        let url = this.api_url + '/class/'+id;
+
+        let token = sessionStorage.getItem('token');
+        let headers = new HttpHeaders().set('auth-token', token);
+
+        return this.http.delete(url, {headers: headers, responseType: 'text' as 'json'}).pipe(
+            catchError(error => {
+                return observableThrowError(error)
+            }));
+    }
+
+    addNewClass(data:any) {
+        let url = this.api_url + '/class/new';
+        
+        let token = sessionStorage.getItem('token');
+        let headers = new HttpHeaders().set('auth-token', token);
+
+        return this.http.post(url, data, {headers: headers}).pipe(
+            catchError(error => {
+                return observableThrowError(error)
+            }));
+    }
+    /************************************/
+    /****  CLASSES MODULE API's END  ****/
+    /************************************/
 
     /************************************/
     /**** STUDENT MODULE API's START ****/

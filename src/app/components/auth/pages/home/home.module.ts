@@ -24,6 +24,9 @@ import { TeachersFineComponent } from 'src/app/components/auth/pages/teachers/te
 import { PrintStudentComponent } from 'src/app/components/auth/pages/students/print-student/print-student.component';
 import { PrintFeeComponent } from 'src/app/components/auth/pages/fee/print-fee/print-fee.component';
 import { FeeRegisterComponent } from 'src/app/components/auth/pages/fee/fee-register/fee-register.component';
+import { AllClassesComponent } from '../class/all-classes/all-classes.component';
+import { NewClassComponent } from '../class/new-class/new-class.component';
+import { UpdateClassComponent } from '../class/update-class/update-class.component';
 
 import { AccordionModule } from 'ngx-bootstrap/accordion';
 import { AgGridModule } from 'ag-grid-angular';
@@ -53,7 +56,10 @@ import { NgxPrinterModule, NgxPrinterService } from 'ngx-printer';
         TeachersFineComponent,
         PrintStudentComponent,
         PrintFeeComponent,
-        FeeRegisterComponent
+        FeeRegisterComponent,
+        AllClassesComponent,
+        NewClassComponent,
+        UpdateClassComponent
     ],
     imports: [
         HomeRouting,

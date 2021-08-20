@@ -208,6 +208,7 @@ export class FeeRegisterComponent {
     }
 
     createDataForFeeRegister() {
+        this.spinner.show(this.spinner_name);
         this.fee_register = [];
         for(let i of this.studentsData) {
             this.fee_register.push(
@@ -232,29 +233,31 @@ export class FeeRegisterComponent {
             )
         }
 
-        for(let i of this.feeData) {
-            for(let x of this.fee_register) {
-                if(i.computer_number == x.computer_number) {
-                    for(let y of x.fee_information) {
-                        if(moment(i.month_full).format('MMM') == y.name) {
-                            y.fee = i.amount;
-                            y.date = i.month_full
+        setTimeout(() => {
+            for(let i of this.feeData) {
+                for(let x of this.fee_register) {
+                    if(i.computer_number == x.computer_number) {
+                        for(let y of x.fee_information) {
+                            if(moment(i.month_full).format('MMM') == y.name) {
+                                console.log(i.amount)
+                                y.fee = i.amount;
+                                y.date = i.month_full
+                            }
                         }
                     }
                 }
             }
-        }
 
-        this.rowData = this.fee_register;
-
-        console.log(this.fee_register)
+            this.rowData = this.fee_register;
+            this.spinner.hide(this.spinner_name);
+        }, 1000);
     }
 
     feeData:any = [];
     getAllPaidFee() {
         this.spinner.show(this.spinner_name);
         this.api_service.getAllPaidFee().subscribe((response:any) => {
-            this.spinner.hide(this.spinner_name);  
+            // this.spinner.hide(this.spinner_name);  
             if(response.length <= 0) return this.toastr.success('No record found');
 
             // this.rowData = response;  
@@ -271,7 +274,7 @@ export class FeeRegisterComponent {
     getAllStudents() {
         this.spinner.show(this.spinner_name);
         this.api_service.getAllStudents().subscribe((response:any) => {
-            this.spinner.hide(this.spinner_name);  
+            // this.spinner.hide(this.spinner_name);  
             if(response.length <= 0) return this.toastr.success('No record found');
 
             // this.rowData = response;  

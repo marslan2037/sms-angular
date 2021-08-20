@@ -168,6 +168,11 @@ export class AllStudentsComponent {
             hide: true
         },
         {
+            field: 'status',
+            headerName: 'Status',
+            headerTooltip: 'Status'
+        },
+        {
             field: 'action', 
             headerName: 'Action',
             headerTooltip: 'Action',
@@ -230,10 +235,10 @@ export class AllStudentsComponent {
         this.spinner.show(this.spinner_name);
         this.api_service.getAllStudents().subscribe((response:any) => {
             this.spinner.hide(this.spinner_name);  
-            if(response.length <= 0) return this.toastr.success('No record found');
+            this.rowData = response;
 
-            this.rowData = response;  
-            this.toastr.success('All records are loaded');     
+            let message = (response.length <= 0) ? 'No record found' : 'All records are loaded';
+            this.toastr.success(message);
         }, error => {
             this.spinner.hide(this.spinner_name);
             console.log(error)
@@ -250,6 +255,7 @@ export class AllStudentsComponent {
         }, error => {
             this.spinner.hide(this.spinner_name);
             console.log(error);
+            this.toastr.error(error);
         })
     }
 

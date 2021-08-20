@@ -9,68 +9,89 @@
         <div>
             <label class="section-heading">Student Information</label>
 
-            <div class="have-grid two-column">
+            <div class="have-grid">
                 <div class="single-form-field">
-                    <label>Roll No</label>
+                    <label>Computer Number</label>
                     <input 
-                        type="email" 
-                        placeholder="Roll No" 
-                        formControlName="roll_number"
+                        type="text" 
+                        placeholder="Computer Number" 
+                        formControlName="computer_number"
                     />
 
                     <ng-container 
                         *ngIf="
-                            form.controls.roll_number.invalid && 
-                            form.controls.roll_number.touched && 
-                            form.controls.roll_number.dirty
+                            form.controls.computer_number.invalid && 
+                            form.controls.computer_number.touched && 
+                            form.controls.computer_number.dirty
                         "
                     >
-                        <p class="has-error" *ngIf="form.controls.roll_number.errors?.required">
+                        <p class="has-error" *ngIf="form.controls.computer_number.errors?.required">
                             This field is required.
                         </p>
 
-                        <p class="has-error" *ngIf="form.controls.roll_number.errors?.minlength">
-                            The minimum length for this field is {{form.controls.roll_number.errors.minlength.requiredLength}} characters.
-                        </p>
-                    </ng-container>
-                </div>
-    
-                <div class="single-form-field">
-                    <label>Class</label>
-                    <div class="pos-relative custom-select-arrow">
-                        <select formControlName="class">
-                            <option value="undefined">Select Value</option>
-                            <option value="play group">Play Group</option>
-                            <option value="nursery">Nursery</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                        </select>
-
-                        <i class="fa fa-angle-down"></i>
-                    </div>
-
-                    <ng-container 
-                        *ngIf="
-                            form.controls.class.invalid && 
-                            form.controls.class.touched && 
-                            form.controls.class.dirty
-                        "
-                    >
-                        <p class="has-error" *ngIf="form.controls.class.errors?.required">
-                            This field is required.
-                        </p>
-
-                        <p class="has-error" *ngIf="form.controls.class.errors?.minlength">
-                            The minimum length for this field is {{form.controls.class.errors.minlength.requiredLength}} characters.
+                        <p class="has-error" *ngIf="form.controls.computer_number.errors?.minlength">
+                            The minimum length for this field is {{form.controls.computer_number.errors.minlength.requiredLength}} characters.
                         </p>
                     </ng-container>
                 </div>
             </div>
 
             <ng-container *ngIf="student_info">
+                <div class="have-grid two-column">
+                    <div class="single-form-field">
+                        <label>Roll No</label>
+                        <input 
+                            type="email" 
+                            placeholder="Roll No" 
+                            formControlName="roll_number"
+                        />
+    
+                        <ng-container 
+                            *ngIf="
+                                form.controls.roll_number.invalid && 
+                                form.controls.roll_number.touched && 
+                                form.controls.roll_number.dirty
+                            "
+                        >
+                            <p class="has-error" *ngIf="form.controls.roll_number.errors?.required">
+                                This field is required.
+                            </p>
+    
+                            <p class="has-error" *ngIf="form.controls.roll_number.errors?.minlength">
+                                The minimum length for this field is {{form.controls.roll_number.errors.minlength.requiredLength}} characters.
+                            </p>
+                        </ng-container>
+                    </div>
+        
+                    <div class="single-form-field">
+                        <label>Class</label>
+                        <div class="pos-relative custom-select-arrow">
+                            <select formControlName="class">
+                                <option value="undefined">Select Value</option>
+                                <option *ngFor="let i of classes_list" [value]="i.name">{{i.name}}</option>
+                            </select>
+    
+                            <i class="fa fa-angle-down"></i>
+                        </div>
+    
+                        <ng-container 
+                            *ngIf="
+                                form.controls.class.invalid && 
+                                form.controls.class.touched && 
+                                form.controls.class.dirty
+                            "
+                        >
+                            <p class="has-error" *ngIf="form.controls.class.errors?.required">
+                                This field is required.
+                            </p>
+    
+                            <p class="has-error" *ngIf="form.controls.class.errors?.minlength">
+                                The minimum length for this field is {{form.controls.class.errors.minlength.requiredLength}} characters.
+                            </p>
+                        </ng-container>
+                    </div>
+                </div>
+
                 <div class="have-grid two-column">
                     <div class="single-form-field">
                         <label>Name</label>

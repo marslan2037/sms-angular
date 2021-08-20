@@ -9,6 +9,33 @@
         <div>
             <label class="section-heading">Student Information</label>
 
+            <div class="have-grid">
+                <div class="single-form-field">
+                    <label>Computer Number</label>
+                    <input 
+                        type="text" 
+                        placeholder="Computer Number" 
+                        formControlName="computer_number"
+                    />
+
+                    <ng-container 
+                        *ngIf="
+                            form.controls.computer_number.invalid && 
+                            form.controls.computer_number.touched && 
+                            form.controls.computer_number.dirty
+                        "
+                    >
+                        <p class="has-error" *ngIf="form.controls.computer_number.errors?.required">
+                            This field is required.
+                        </p>
+
+                        <p class="has-error" *ngIf="form.controls.computer_number.errors?.minlength">
+                            The minimum length for this field is {{form.controls.computer_number.errors.minlength.requiredLength}} characters.
+                        </p>
+                    </ng-container>
+                </div>
+            </div>
+
             <div class="have-grid two-column">
                 <div class="single-form-field">
                     <label>Roll No</label>

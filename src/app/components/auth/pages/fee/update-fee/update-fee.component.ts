@@ -55,14 +55,15 @@ export class UpdateFeeComponent implements OnInit {
 
             this.form.patchValue({
                 roll_number: response.roll_number,
-                name: response.first_name+' '+response.last_name,
+                computer_number: response.computer_number,
+                name: response.name,
                 class: response.class,
                 father_name: response.father_name,
                 amount: response.amount,
                 month: new Date(response.month_full),
             });
 
-            this.fetchStudent(response.class, response.roll_number);
+            this.fetchStudent(response.computer_number);
         }, error => {
             this.spinner.hide(this.spinner_name);
             console.log(error)
@@ -71,10 +72,11 @@ export class UpdateFeeComponent implements OnInit {
 
     createForm() {
         this.form = this.fb.group({
-            'roll_number': [{value: '', disabled: false}, [Validators.required, Validators.minLength(2)]],
-            'name': [{value: '', disabled: false}, ],
+            'computer_number': ['pps-std-00', [Validators.required, Validators.minLength(2)]],
+            'roll_number': [{value: '', disabled: false}],
+            'name': [{value: '', disabled: false}],
             'father_name': [{value: '', disabled: false}, ],
-            'class': [{value: undefined, disabled: false}, [Validators.required, Validators.minLength(1)]],
+            'class': [{value: undefined, disabled: false}],
             'amount': [1500, ],
             'arrears': [0, ],
             'remaining_amount': [0, ],
@@ -93,6 +95,18 @@ export class UpdateFeeComponent implements OnInit {
         this.form.controls.father_name.valueChanges.subscribe((father_name:any) => {
             if(father_name) {
                 this.form.get('father_name').disable({emitEvent: false});
+            }
+        });
+
+        this.form.controls.roll_number.valueChanges.subscribe((roll_number:any) => {
+            if(roll_number) {
+                this.form.get('roll_number').disable({emitEvent: false});
+            }
+        });
+
+        this.form.controls.class.valueChanges.subscribe((std_class:any) => {
+            if(std_class) {
+                this.form.get('class').disable({emitEvent: false});
             }
         });
     }
@@ -133,10 +147,9 @@ export class UpdateFeeComponent implements OnInit {
         }
     }
 
-    fetchStudent(assigned_class:any, roll_number:any) {
+    fetchStudent(computer_number:any) {
         let data = {
-            roll_number: roll_number, 
-            class: assigned_class
+            computer_number: computer_number
         }
 		this.api_service.fetchStudentForFee(data).subscribe((response:any) => {
             console.log(response);

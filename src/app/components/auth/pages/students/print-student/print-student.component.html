@@ -17,135 +17,121 @@
 
 <div class="print-section-container" id="printStudentDiv">
     <div id="print-section" *ngIf="student_info"> 
-        <div class="logo">
-            <span><img src="/assets/images/logo.png" alt="" /></span>
-            <span>
-                <h2>Pakistan Public School</h2>
-                <p>Sharaqpur Sharif - 0343-4091408</p>
-            </span>
-        </div>
-
-        <div class="have-grid two-columns" style="margin: 35px 0 0;">
-            <p class="content-row">
-                <span class="content-heading">Registration Date:</span>
-                <span class="content-detail">{{student_info.date | date:'longDate'}}</span>
-            </p>
+        <div class="page-header">
+            <div class="logo">
+                <span><img src="/assets/images/logo.png" alt="" /></span>
+                <span>
+                    <h2>Pakistan Public School</h2>
+                    <p>Sharaqpur Sharif - 0343-4091408</p>
+                </span>
+            </div>
+    
+            <div class="have-grid date-info">
+                <p class="content-row">
+                    <span class="content-heading">Registration Date:</span>
+                    <span class="content-detail">{{student_info.date | date:'longDate'}}</span>
+                </p>
+            </div>
         </div>
 
         <h4 class="dark-bg">Student Information</h4>
 
-        <div class="have-grid two-columns">
-            <p class="content-row">
-                <span class="content-heading">Computer Generated No:</span>
-                <span class="content-detail" style="text-transform: lowercase;">{{student_info.computer_number}}</span>
-            </p>
+        <div class="print-information">
+            <div class="row-data">
+                <label>Computer Generated No:</label>
+                <p style="text-transform: lowercase;">{{student_info.computer_number}}</p>
+            </div>
+    
+            <div class="row-data">
+                <label>Roll No:</label>
+                <p>{{student_info.roll_number}}</p>
+            </div>
 
-            <p class="content-row">
-                <span class="content-heading">Roll No:</span>
-                <span class="content-detail">
-                    {{student_info.roll_number}}
-                </span>
-            </p>
-        </div>
+            <div class="row-data">
+                <label>Name:</label>
+                <p>{{student_info.name}}</p>
+            </div>
+    
+            <div class="row-data">
+                <label>Gender:</label>
+                <p style="text-transform: capitalize;">{{student_info.gender}}</p>
+            </div>
 
-        <div class="have-grid two-columns">
-            <p class="content-row">
-                <span class="content-heading">Full Name:</span>
-                <span class="content-detail">{{student_info.name}}</span>
-            </p>
+            <div class="row-data">
+                <label>Class:</label>
+                <p style="text-transform: capitalize;">{{student_info.class}}</p>
+            </div>
+    
+            <div class="row-data">
+                <label>Son / Daughter of:</label>
+                <p>{{student_info.father_name}}</p>
+            </div>
 
-            <p class="content-row">
-                <span class="content-heading">Gender:</span>
-                <span class="content-detail">{{student_info.gender}}</span>
-            </p>
-        </div>
-
-        <div class="have-grid two-columns">
-            <p class="content-row">
-                <span class="content-heading">Class:</span>
-                <span class="content-detail">{{student_info.class}}</span>
-            </p>
-
-            <p class="content-row">
-                <span class="content-heading">Son / Daughter of:</span>
-                <span class="content-detail">{{student_info.father_name}}</span>
-            </p>
-        </div>
-
-        <div class="have-grid">
-            <p class="content-row">
-                <span class="content-heading">Address:</span>
-                <span class="content-detail">
+            <div class="row-data">
+                <label>Address:</label>
+                <p>
                     House No. {{student_info.house_number}}, Street {{student_info.street}},
                     Mohallah {{student_info.mohallah}}, {{student_info.city}}, {{student_info.country}}
-                </span>
-            </p>
-        </div>
+                </p>
+            </div>
 
-        <div class="have-grid two-columns">
-            <p class="content-row">
-                <span class="content-heading">B Form No:</span>
-                <span class="content-detail">{{student_info.b_form}}</span>
-            </p>
-    
-            <p class="content-row">
-                <span class="content-heading">Date of Birth:</span>
-                <span class="content-detail">{{student_info.date_of_birth | date: 'longDate'}}</span>
-            </p>
-        </div>
+            <div class="row-data">
+                <label>B Form No:</label>
+                <p>{{student_info.b_form}}</p>
+            </div>
 
-        <div class="have-grid two-columns">
-            <p class="content-row">
-                <span class="content-heading">Nationalatiy:</span>
-                <span class="content-detail">{{student_info.nationality}}</span>
-            </p>
-    
-            <p class="content-row">
-                <span class="content-heading">Relegion:</span>
-                <span class="content-detail">{{student_info.religion}}</span>
-            </p>
+            <div class="row-data">
+                <label>Date of Birth:</label>
+                <p>{{student_info.date_of_birth | date: 'longDate'}}</p>
+            </div>
+
+            <div class="row-data">
+                <label>Nationalatiy:</label>
+                <p style="text-transform: capitalize;">{{student_info.nationality}}</p>
+            </div>
+
+            <div class="row-data">
+                <label>Relegion:</label>
+                <p style="text-transform: capitalize;">{{student_info.religion}}</p>
+            </div>
         </div>
 
         <h4 class="dark-bg">Parents Information</h4>
 
-        <div class="have-grid two-columns">
-            <p class="content-row">
-                <span class="content-heading">Father Name:</span>
-                <span class="content-detail">{{student_info.father_name}}</span>
-            </p>
+        <div class="print-information">
+            <div class="row-data">
+                <label>Father Name:</label>
+                <p>{{student_info.father_name}}</p>
+            </div>
 
-            <p class="content-row">
-                <span class="content-heading">Phone No:</span>
-                <span class="content-detail">{{student_info.phone_number}}</span>
-            </p>
-        </div>
+            <div class="row-data">
+                <label>Phone Number:</label>
+                <p>{{student_info.phone_number}}</p>
+            </div>
 
-        <div class="have-grid two-columns">
-            <p class="content-row">
-                <span class="content-heading">Occupation:</span>
-                <span class="content-detail">{{student_info.father_occupation}}</span>
-            </p>
+            <div class="row-data">
+                <label>Occupation:</label>
+                <p>{{student_info.father_occupation}}</p>
+            </div>
     
-            <p class="content-row">
-                <span class="content-heading">Education:</span>
-                <span class="content-detail">{{student_info.father_education}}</span>
-            </p>
-        </div>
+            <div class="row-data">
+                <label>Education:</label>
+                <p>{{student_info.father_education}}</p>
+            </div>
 
-        <div class="have-grid two-columns">
-            <p class="content-row">
-                <span class="content-heading">CNIC:</span>
-                <span class="content-detail">{{student_info.father_cnic}}</span>
-            </p>
+            <div class="row-data">
+                <label>CNIC:</label>
+                <p>{{student_info.father_cnic}}</p>
+            </div>
         </div>
 
         <h4 class="dark-bg">Fee Information</h4>
 
-        <div class="have-grid two-columns">
-            <p class="content-row">
-                <span class="content-heading">Fee:</span>
-                <span class="content-detail">{{student_info.fee}}</span>
-            </p>
+        <div class="print-information">
+            <div class="row-data">
+                <label>Fee:</label>
+                <p>{{student_info.fee}}</p>
+            </div>
         </div>
     </div>
 </div>

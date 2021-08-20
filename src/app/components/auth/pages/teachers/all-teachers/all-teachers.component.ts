@@ -183,11 +183,11 @@ export class AllTeachersComponent {
     getAllTeachers() {
         this.spinner.show(this.spinner_name);
         this.api_service.getAllTeachers().subscribe((response:any) => {
-            this.spinner.hide(this.spinner_name);  
-            if(response.length <= 0) return this.toastr.success('No record found');
-
+            this.spinner.hide(this.spinner_name);
             this.rowData = response;  
-            this.toastr.success('All records are loaded');        
+
+            let message = (response.length <= 0) ? 'No record found' : 'All records are loaded';
+            this.toastr.success(message);        
         }, error => {
             this.spinner.hide(this.spinner_name);
             console.log(error)

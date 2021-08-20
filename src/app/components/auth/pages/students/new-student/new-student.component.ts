@@ -16,6 +16,7 @@ export class NewStudentComponent {
 
     form:any;
     spinner_name:any = 'sp1';
+    classes_list:any = [];
 
     constructor(
         private router: Router,
@@ -26,7 +27,20 @@ export class NewStudentComponent {
     ) { }
 
     ngOnInit() {
+        this.getAllClasses();
         this.createForm();
+    }
+
+    getAllClasses() {
+        this.spinner.show(this.spinner_name);
+        this.api_service.getAllClasses().subscribe((response:any) => {
+            this.classes_list = response;
+            this.spinner.hide(this.spinner_name);
+        }, error => {
+            this.spinner.hide(this.spinner_name);
+            console.log(error);
+            this.toastr.error('Error while loading Class list');
+        })
     }
 
     createForm() {
@@ -35,6 +49,7 @@ export class NewStudentComponent {
             'name': ['', [Validators.required, Validators.minLength(3), Validators.maxLength(30)]],
             'gender': [{value: undefined, disabled: false}, [Validators.required, Validators.minLength(4), Validators.maxLength(6)]],
             'fee': [0, [Validators.required, Validators.minLength(0)]],
+			'status': ['Active'],
 			'religion': [{value: undefined, disabled: false}, [Validators.required, Validators.minLength(3), Validators.maxLength(30)]],
 			'nationality': [{value: undefined, disabled: false}, [Validators.required, Validators.minLength(3), Validators.maxLength(30)]],
 			'date_of_birth': ['', [Validators.required, Validators.minLength(3), Validators.maxLength(30)]],

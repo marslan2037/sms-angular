@@ -92,13 +92,7 @@
                     <div class="pos-relative custom-select-arrow">
                         <select formControlName="class">
                             <option value="undefined">Select Value</option>
-                            <option value="play group">Play Group</option>
-                            <option value="nursery">Nursery</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
+                            <option *ngFor="let i of classes_list" [value]="i.name">{{i.name}}</option>
                         </select>
 
                         <i class="fa fa-angle-down"></i>

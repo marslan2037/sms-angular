@@ -103,7 +103,7 @@ export class UpdateStudentComponent {
             this.api_service.updateSingleStudent(this.single_student_id, this.form.value).subscribe((response:any) => {
                 console.log(response);
                 this.spinner.hide(this.spinner_name);
-                this.toastr.success('Student record is created');
+                this.toastr.success('Student record is Updated');
 
                 this.router.navigate(['/home/students/'+response+'/print']);
             }, error => {

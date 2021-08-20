@@ -3,18 +3,17 @@ import { ApiService } from 'src/app/services/api-service';
 import { Router } from '@angular/router';
 
 import { GridOptions } from "ag-grid-community";
-import * as moment from 'moment-timezone';
 import { NgxSpinnerService } from "ngx-spinner";
 import { ToastrService } from 'ngx-toastr';
 
 import { FilterIconRenderer } from 'src/app/components/cell-rendering-components/filter-icon-rendering/filter-icon-rendering.component';
 
 @Component({
-    selector: 'app-fee-paid',
-    templateUrl: './fee-paid.component.html',
-    styleUrls: ['./fee-paid.component.scss']
+    selector: 'app-all-classes',
+    templateUrl: './all-classes.component.html',
+    styleUrls: ['./all-classes.component.scss']
 })
-export class FeePaidComponent implements OnInit {
+export class AllClassesComponent implements OnInit {
 
     spinner_name:any = 'sp1';
 
@@ -37,61 +36,9 @@ export class FeePaidComponent implements OnInit {
             checkboxSelection: true 
         },
         {
-            field: 'roll_number', 
-            headerName: 'Roll No',
-            headerTooltip: 'Roll No' 
-        },
-        {
-            field: 'computer_number', 
-            headerName: 'Computer Number',
-            headerTooltip: 'Computer Number' 
-        },
-        {
             field: 'name', 
             headerName: 'Name',
-            headerTooltip: 'Name' 
-        },
-        {
-            field: 'class', 
-            headerName: 'Class',
-            headerTooltip: 'Class',
-        },
-        {
-            field: 'amount', 
-            headerName: 'Amount',
-            headerTooltip: 'Amount',
-        },
-        // {
-        //     field: 'name', 
-        //     headerName: 'Name', 
-        //     headerTooltip: 'Name',
-        // },
-        // {
-        //     field: 'father_name', 
-        //     headerName: 'Father Name',
-        //     headerTooltip: 'Father Name', 
-        // },
-        {
-            field: 'month', 
-            headerName: 'Fee Month', 
-            headerTooltip: 'Fee Month',
-            // valueGetter: (data:any) => {
-            //     console.log(data.data)
-            //     if(data.data.month) {
-            //         return moment(data.data.month).format('M/YYYY');
-            //     }
-            // },
-        },
-        {
-            field: 'date', 
-            headerName: 'Date', 
-            headerTooltip: 'Date',
-            valueGetter: (data:any) => {
-                console.log(data.data.date)
-                if(data.data.date) {
-                    return moment(data.data.date).format('M/D/YYYY (ddd)');
-                }
-            },
+            headerTooltip: 'Name', 
         },
         {
             field: 'action', 
@@ -117,7 +64,7 @@ export class FeePaidComponent implements OnInit {
 
     ngOnInit() {
         this.setDefaultPropertiesForGrid();
-        this.getAllPaidFee();
+        this.getAllClasses();
     }
 
     setDefaultPropertiesForGrid() {
@@ -152,14 +99,14 @@ export class FeePaidComponent implements OnInit {
         this.gridApi.sizeColumnsToFit();
     }
 
-    getAllPaidFee() {
+    getAllClasses() {
         this.spinner.show(this.spinner_name);
-        this.api_service.getAllPaidFee().subscribe((response:any) => {
+        this.api_service.getAllClasses().subscribe((response:any) => {
             this.spinner.hide(this.spinner_name);  
-            this.rowData = response;  
+            this.rowData = response;
 
             let message = (response.length <= 0) ? 'No record found' : 'All records are loaded';
-            this.toastr.success(message);     
+            this.toastr.success(message);
         }, error => {
             this.spinner.hide(this.spinner_name);
             console.log(error)
@@ -168,22 +115,24 @@ export class FeePaidComponent implements OnInit {
     }
 
     deleteSingleRecord(id:any) {
-        this.spinner.show(this.spinner_name);
-        this.api_service.deleteFee(id).subscribe((response:any) => {
-            console.log(response);
-            this.toastr.success('Fee record is deleted');
-            this.getAllPaidFee();
-        }, error => {
-            this.spinner.hide(this.spinner_name);
-            console.log(error);
-        })
+        this.toastr.error("Please contact administrator for delete any class.")
+        // this.spinner.show(this.spinner_name);
+        // this.api_service.deleteClass(id).subscribe((response:any) => {
+        //     console.log(response);
+        //     this.toastr.success('Class record is deleted');
+        //     this.getAllClasses();
+        // }, error => {
+        //     this.spinner.hide(this.spinner_name);
+        //     console.log(error);
+        //     this.toastr.error(error);
+        // })
     }
 
     editSingleRecord(id:any) {
-        this.router.navigate(['/home/fee/'+id]);
+        this.router.navigate(['/home/class/'+id]);
     }
 
     printSingleRecord(id:any) {
-        this.router.navigate(['/home/fee/'+id+'/print']);
+        // this.router.navigate(['/home/students/'+id+'/print']);
     }
 }

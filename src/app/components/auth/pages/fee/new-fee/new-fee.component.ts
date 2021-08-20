@@ -27,6 +27,19 @@ export class NewFeeComponent implements OnInit {
         private spinner: NgxSpinnerService,
 	) { }
 
+    classes_list:any = [];
+    getAllClasses() {
+        this.spinner.show(this.spinner_name);
+        this.api_service.getAllClasses().subscribe((response:any) => {
+            this.classes_list = response;
+            this.spinner.hide(this.spinner_name);
+        }, error => {
+            this.spinner.hide(this.spinner_name);
+            console.log(error);
+            this.toastr.error('Error while loading Class list');
+        })
+    }
+
     onOpenCalendar(container:any) {
         container.monthSelectHandler = (event: any): void => {
           container._store.dispatch(container._actions.select(event.date));
@@ -35,16 +48,18 @@ export class NewFeeComponent implements OnInit {
     }
 
     ngOnInit() {
+        this.getAllClasses();
         this.createForm();
         this.FormValueChanges();
     }
 
     createForm() {
         this.form = this.fb.group({
-            'roll_number': [{value: '', disabled: false}, [Validators.required, Validators.minLength(2)]],
-            'name': [{value: '', disabled: false}, ],
+            'computer_number': ['pps-std-00', [Validators.required, Validators.minLength(2)]],
+            'roll_number': [{value: '', disabled: false}],
+            'name': [{value: '', disabled: false}],
             'father_name': [{value: '', disabled: false}, ],
-            'class': [{value: undefined, disabled: false}, [Validators.required, Validators.minLength(1)]],
+            'class': [{value: undefined, disabled: false}],
             'amount': [1500, ],
             'arrears': [0, ],
             'remaining_amount': [0, ],
@@ -65,6 +80,18 @@ export class NewFeeComponent implements OnInit {
                 this.form.get('father_name').disable({emitEvent: false});
             }
         });
+
+        this.form.controls.roll_number.valueChanges.subscribe((roll_number:any) => {
+            if(roll_number) {
+                this.form.get('roll_number').disable({emitEvent: false});
+            }
+        });
+
+        this.form.controls.class.valueChanges.subscribe((std_class:any) => {
+            if(std_class) {
+                this.form.get('class').disable({emitEvent: false});
+            }
+        });
     }
 
     resetPayingProcess() {
@@ -83,7 +110,7 @@ export class NewFeeComponent implements OnInit {
 
                 let data = {
                     roll_number: form_raw_value.roll_number,
-                    computer_number: (computer_number) ? computer_number : 'none',
+                    computer_number: computer_number,
                     name: form_raw_value.name,
                     class: form_raw_value.class,
                     month: moment(this.form.value.month).format('MM/YYYY'),
@@ -91,7 +118,7 @@ export class NewFeeComponent implements OnInit {
                     amount: form_value.amount,
                     remaining_amount: form_value.remaining_amount,
                     arrears: form_value.arrears,
-                    status: 'paid'
+                    status: (form_value > 0) ? 'paid' : 'unpaid'
                 }
 
                 this.api_service.addNewFee(data).subscribe((response:any) => {
@@ -118,6 +145,8 @@ export class NewFeeComponent implements OnInit {
                     this.student_info = response;
     
                     this.form.patchValue({
+                        roll_number: response.roll_number,
+                        class: response.class,
                         name: response.name,
                         father_name: response.father_name,
                         amount: response.amount,

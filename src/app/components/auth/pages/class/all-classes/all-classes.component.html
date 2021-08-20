@@ -1,0 +1,22 @@
+<h4 class="section-heading">Class Section</h4>
+
+<ngx-spinner 
+    [name]="spinner_name" 
+    [fullScreen]="true" 
+    type="ball-clip-rotate-multiple" 
+    size="medium"
+></ngx-spinner>
+
+<ag-grid-angular
+    class="ag-theme-alpine"
+    [columnDefs]="columnDefs"
+    [defaultColDef]="defaultColDef"
+    [floatingFiltersHeight]="headerHeight"
+    [frameworkComponents]="gridFrameworkComponents"
+    [gridOptions]="gridOptions"
+    [headerHeight]="headerHeight"
+    [rowData]="rowData"
+    (gridReady)="onGridReady($event)"
+    (gridSizeChanged)="gridSizeChanged($event)"
+>
+</ag-grid-angular>

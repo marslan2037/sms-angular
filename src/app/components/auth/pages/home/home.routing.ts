@@ -15,6 +15,9 @@ import { UpdateFeeComponent } from 'src/app/components/auth/pages/fee/update-fee
 import { PrintStudentComponent } from '../students/print-student/print-student.component';
 import { PrintFeeComponent } from '../fee/print-fee/print-fee.component';
 import { FeeRegisterComponent } from '../fee/fee-register/fee-register.component';
+import { AllClassesComponent } from '../class/all-classes/all-classes.component';
+import { NewClassComponent } from '../class/new-class/new-class.component';
+import { UpdateClassComponent } from '../class/update-class/update-class.component';
 
 const routes: Routes = [
 
@@ -35,6 +38,21 @@ const routes: Routes = [
                 path: 'teachers/:id',
                 component: UpdateTeacherComponent
             },
+
+            //CLASS ROUTES START
+            {
+                path: 'classes',
+                component: AllClassesComponent
+            },
+            {
+                path: 'class/add',
+                component: NewClassComponent
+            },
+            {
+                path: 'class/:id',
+                component: UpdateClassComponent
+            },
+            //CLASS ROUTES END
             
             //STUDENTS ROUTES START
             {
@@ -53,7 +71,7 @@ const routes: Routes = [
                 path: 'students/:id/print',
                 component: PrintStudentComponent
             },
-            //STUDENTS ROUTES START
+            //STUDENTS ROUTES END
 
             {
                 path: 'fee/pay',

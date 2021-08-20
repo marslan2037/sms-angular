@@ -1,0 +1,42 @@
+<ngx-spinner [name]="spinner_name" [fullScreen]="true" type="ball-clip-rotate-multiple" size="medium"></ngx-spinner>
+<div class="form-section">
+    <div class="form-heading align-center">
+        <h1 class="title">Update Class</h1>
+        <p class="sub-title">Fill the form below to update Class.</p>
+    </div>
+    
+    <form [formGroup]="form" (ngSubmit)="submit()">
+        <div class="have-grid two-column">
+            <div class="single-form-field">
+                <label>Name</label>
+                <input type="text" placeholder="Name" formControlName="name" />
+                
+                <ng-container 
+                    *ngIf="
+                        form.controls.name.invalid && 
+                        form.controls.name.touched && 
+                        form.controls.name.dirty
+                    "
+                >
+                    <p class="has-error" *ngIf="form.controls.name.errors?.required">
+                        This field is required.
+                    </p>
+
+                    <p class="has-error" *ngIf="form.controls.name.errors?.minlength">
+                        The minimum length for this field is {{form.controls.name.errors.minlength.requiredLength}} characters.
+                    </p>
+
+                    <p class="has-error" *ngIf="form.controls.name.errors?.maxlength">
+                        The maximum length for this field is {{form.controls.name.errors.maxlength.requiredLength}} characters.
+                    </p>
+                </ng-container>
+            </div>
+        </div>
+
+        <button
+            class="primary-button" 
+            [ngClass]="{'disbaled': !form.valid}" 
+            [disabled]="!form.valid"
+        >Update</button>
+    </form>
+</div>
