@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { ApiService } from 'src/app/services/api-service';
 
@@ -19,6 +19,7 @@ export class PrintStudentComponent {
 
     constructor(
         private route: ActivatedRoute,
+        private router: Router,
         private api_service: ApiService,
         private toastr: ToastrService,
         private spinner: NgxSpinnerService,
@@ -42,7 +43,6 @@ export class PrintStudentComponent {
     getSingleStudent(id:any) {
         this.spinner.show(this.spinner_name);
         this.api_service.getSingleStudent(id).subscribe((response:any) => {
-            console.log(response)
             this.spinner.hide(this.spinner_name);
 
             this.student_info = response;

@@ -27,6 +27,7 @@ import { FeeRegisterComponent } from 'src/app/components/auth/pages/fee/fee-regi
 import { AllClassesComponent } from '../class/all-classes/all-classes.component';
 import { NewClassComponent } from '../class/new-class/new-class.component';
 import { UpdateClassComponent } from '../class/update-class/update-class.component';
+import { StudentFormComponent } from '../downloads/student-form/student-form.component';
 
 import { AccordionModule } from 'ngx-bootstrap/accordion';
 import { AgGridModule } from 'ag-grid-angular';
@@ -59,7 +60,8 @@ import { NgxPrinterModule, NgxPrinterService } from 'ngx-printer';
         FeeRegisterComponent,
         AllClassesComponent,
         NewClassComponent,
-        UpdateClassComponent
+        UpdateClassComponent,
+        StudentFormComponent
     ],
     imports: [
         HomeRouting,

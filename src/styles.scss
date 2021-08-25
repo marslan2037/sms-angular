@@ -117,6 +117,17 @@
             }
         }
     }
+    .signature-section {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        font-weight: bold;
+        margin: 40px 0 0;
+        p {
+            &:nth-child(2) {
+                justify-self: end;
+            }
+        }
+    }
 }
 
 

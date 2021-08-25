@@ -18,6 +18,7 @@ import { FeeRegisterComponent } from '../fee/fee-register/fee-register.component
 import { AllClassesComponent } from '../class/all-classes/all-classes.component';
 import { NewClassComponent } from '../class/new-class/new-class.component';
 import { UpdateClassComponent } from '../class/update-class/update-class.component';
+import { StudentFormComponent } from '../downloads/student-form/student-form.component';
 
 const routes: Routes = [
 
@@ -62,6 +63,10 @@ const routes: Routes = [
             {
                 path: 'students/add',
                 component: NewStudentComponent
+            },
+            {
+                path: 'students/form/print',
+                component: StudentFormComponent
             },
             {
                 path: 'students/:id',

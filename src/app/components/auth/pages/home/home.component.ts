@@ -29,7 +29,6 @@ export class HomeComponent {
 
     is_home_page:boolean = false;
     checkIfHomePage(url:any) {
-        console.log(url)
         this.is_home_page = (url == '/home' || url == '/') ? true : false;
         if(this.is_home_page) {
             this.getAllStudents();
